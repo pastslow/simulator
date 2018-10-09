@@ -1,0 +1,250 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+nav{
+    background: black;
+    display: flex;
+    align-items: center;
+}
+.ochi{
+    height: 40px;
+    overflow: hidden;
+}
+ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+ul li {
+    height: 40px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 40px;
+    list-style-type: none;
+    background: black;
+    z-index: 1;
+    margin-left: 16px;
+}
+ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    background: green;
+}
+ul li:hover ul {
+    display: block;
+}
+ul ul {
+    display: none;
+}
+.imgNav{
+    width: 40px;
+    height: 40px;
+    animation: mymove 3s linear infinite;
+}
+@keyframes mymove {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.SuperMechDivClass{
+    border: 1px solid white;
+    background: gainsboro;
+    margin-top: 4px;
+    overflow: hidden;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.flexWithAlign{
+    display: flex;
+    align-items: center;
+}
+.imgPrime{
+    width: 42px;
+    height: 42px;
+}
+.imgAtrib{
+    width: 20px;
+    height: 20px;
+}
+.TxtCenter{
+    text-align: center;
+}
+.sel{
+    width: 66px;
+    font-size: 12px;
+}
+.dispNone{
+    display: none;
+}
+.spanAtrib{
+    width: 30px;
+    font-size: 14px;
+    text-align: center;
+}
+.dispFlex{
+    display: flex;
+    border: 1px solid #ced0d4;
+    background-color: white;
+    justify-content: center;
+    margin: 1px;
+}
+.dispFlexWithColum{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.textCenter{
+    text-align: center;
+}
+.textCenterAndM2{
+    text-align: center;
+    margin: 1px;
+}
+.txtAndMargin{
+    text-align: center;
+    margin-left: 8px;
+}
+.emptyContainer{
+    height: 85px;
+    background: white;
+    border: 1px solid #ced0d4;
+    box-sizing: border-box;
+}
+.imgArena{
+    width: 32px;
+    height: 32px;
+    border-radius: 40%;
+}
+.selectArenaProcent{
+    font-size: 11px;
+    width: 40px;
+}
+.ArenaContainer{
+    display: flex;
+    justify-content: center;
+    background: white;
+    border: 1px solid #ced0d4;
+}
+.topBarImg{
+    width: 45px;
+    height: 45px;
+    border: 3px solid white;
+}
+.topBarImgFirst{
+    width: 45px;
+    height: 45px;
+    border: 3px solid red;
+}
+.lineH{
+    text-align: center;
+    line-height: 8px;
+}
+.widthMax{
+    max-width: 250px;
+}
+.loadingBar{
+    height: 25px;
+    border: 1px solid black;
+}
+.loadingDiv{
+    margin: 18px;
+}
+.loadSpanInf{
+    font-size: 25px;
+    color: wheat;
+}
+.insideLoadingBar{
+    width: 1%;
+    background: red;
+    height: 100%;
+    transition: 3s;
+}
+.btnDiv{
+    justify-content: space-evenly;
+    display: flex;
+    margin-top: 40px;
+}
+.btnOne{
+    padding: 5px;
+    width: 120px;
+    border-radius: 25%;
+    background: black;
+    color: white;
+    font-size: 16px;
+}
+.btnOne:hover{
+    background: lightblue;
+    color: black;
+    cursor: pointer;
+}
+
+.spanLoadDiv{
+    margin: 20px;
+    color: red;
+    font-size: 26px;
+    text-align: center;
+    font-style: italic;
+}
+.greenColor{
+    color: green;
+}
+.dispNoneSpan{
+    display: none;
+}
+.loadingBarDisp{
+    display: block;
+}
+.dispNoneContainer{
+    display: none;
+}
+.imgUp{
+    display: none;
+    width: 100%;
+    position: relative;
+    height: 250px;
+    top: -51px;
+    transition: 2.5s;
+}
+.imgDown{
+    display: none;
+    width: 100%;
+    height: 200px;
+    position: relative;
+    top: -68px;
+    transition: 2.5s;
+}
+.arenaWeponStats{
+    display: flex;
+    background: white;
+    justify-content: center;
+}
+.firstLi{
+    background: green;
+}
+.sel:hover{
+    cursor: pointer;
+}
+.selectArenaProcent{
+    cursor: pointer;
+}
+.justSpaceAround{
+    justify-content: space-around;
+}
+.marginTop{
+    margin-top: 30px;
+}

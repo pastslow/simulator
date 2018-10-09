@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/validationFrontEndPart.js"></script>
+    <script src="https://code.createjs.com/1.0.0/soundjs.min.js"></script>
+    <link rel="stylesheet" href="css/fightByJs.css">
+</head>
+
+<body>
+    <div class="fightTable col-sm-12" id="prepareFightDiv">
+        <h2 class="text-success">Create your own training dummy</h2>
+        <div class="fightStatsTable">
+            <div class="d-flex justif-center">
+                <div>
+                    <img class="imgDummy" src="img/atrib/hp.png" alt="">
+                    <input id="hpInput" class="max-width" min="1" max="99999" value="10000" type="number" name="" id="" />
+                </div>
+                <div>
+                    <img class="imgDummy" src="img/atrib/heat.png" alt="">
+                    <input id="heatInput" class="max-width" min="1" max="99999" value="800" type="number" name="" id="" />
+                </div>
+                <div>
+                    <img class="imgDummy" src="img/atrib/energy.png" alt="">
+                    <input id="engInput" class="max-width" min="1" max="99999" value="800" type="number" name="" id="" />
+                </div>
+            </div>
+            <br />
+            <div class="d-flex justif-center">
+                <div>
+                    <img class="imgDummy" src="img/atrib/cooling.png" alt="">
+                    <input id="coolingInput" class="max-width" min="1" max="99999" value="300" type="number" name="" id="" />
+                </div>
+                <div>
+                    <img class="imgDummy" src="img/atrib/energy_regen.png" alt="">
+                    <input id="engRegenInput" class="max-width" min="1" max="99999" value="300" type="number" name=""
+                        id="" />
+                </div>
+            </div>
+            <br />
+
+            <div class="d-flex justif-center">
+                <div>
+                    <img class="imgDummy" src="img/atrib/pysresist.png" alt="">
+                    <input id="pysResistInput" class="max-width" min="1" max="99999" value="20" type="number" name=""
+                        id="" />
+                </div>
+                <div>
+                    <img class="imgDummy" src="img/atrib/expresist.png" alt="">
+                    <input id="expResistInput" class="max-width" min="1" max="99999" value="20" type="number" name=""
+                        id="" />
+                </div>
+                <div>
+                    <img class="imgDummy" src="img/atrib/eleresist.png" alt="">
+                    <input id="engResistInput" class="max-width" min="1" max="99999" value="20" type="number" name=""
+                        id="" />
+                </div>
+            </div>
+            <br />
+
+        </div>
+        <input type="button" onclick="allFunction()" class="btn btn-xs btn-success" value="Fight Against Dumbie" name=""
+            id="" />
+        <h2>Fight against computer</h2>
+        <input type="button" disabled class="btn btn-xs btn-danger" value="Cooming Soon" name="" id="" />
+    </div>
+
+    <div class="mainFight" id="robotCreate">
+    </div>
+    <div id='fight' class="fight">
+        <div class="mainFightPlayers" id="player1">
+        </div>
+    </div>
+    <div id="attackBtnDiv" class="btnContainer">
+    </div>
+    <div id="bulletsContainer" class="bulletsContainer">
+    </div>
+    <div id='indicatorOfDamage' class="weaponStatsContainer">
+        <div title="Minimum Damage">
+            <img class='ico indicatorImg' src='img/fight/icons/explosion.png' />
+            <span id='minimumDmgIndicator' class="fontBold colInd">0</span>
+        </div>
+        <div>
+            <span class="fontBold colInd">+</span>
+        </div>
+        <div title="ArenaProcent">
+            <img id='icoDmgArenaIndicator' class='ico indicatorImg' src='img/fight/icons/explosion.png' />
+            <span id='arenaProcent' class="fontBold colInd">0</span>
+            <span id='' class="fontBold colInd">%</span>
+            <span id='' class="fontBold colInd"> (</span>
+            <span id='arenaDmgByProcent' class="fontBold colInd">0</span>
+            <span id='' class="fontBold colInd">)</span>
+        </div>
+        <div>
+            <span class="fontBold colInd">+</span>
+        </div>
+        <div title="Random Damage">
+            <img class='ico indicatorImg' src='img/fight/icons/explosion.png' />
+            <span id='randomDmgIndicator' class="fontBold colInd">0</span>
+        </div>
+        <div>
+            <span class="fontBold colInd">-</span>
+        </div>
+        <div title="Resist Enemy">
+            <img id='resEnemyIndImg' class='ico' src='img/fight/icons/explosionRes.png' />
+            <span id='resIndicator' class="fontBold colInd">0</span>
+        </div>
+        <div>
+            <span class="fontBold colInd">=</span>
+        </div>
+        <div title="Total Damage">
+            <img class='ico indicatorImg' src='img/fight/icons/explosion.png' />
+            <span id='totalDmgIndicator' class="fontBold colInd">0</span>
+            <img class='ico indicatorImg' src='img/fight/icons/explosion.png' />
+        </div>
+
+    </div>
+    <div id="weaponStatsFight" class="weaponStatsContainer">
+
+        <div>
+            <div title="Your Cooling">
+                <img class='ico' src='img/fight/icons/cooling.png' />
+                <span id='coolingSpanFight' class="fontBold colWhite">0</span>
+            </div>
+            <div title="Your Energy Regen">
+                <img class='ico' src='img/fight/icons/energy_regen.png' />
+                <span id='engRegenFight' class="fontBold colLightBlue">0</span>
+            </div>
+        </div>
+        <div>
+            <div title="Heat Consumption">
+                <img class='ico' src='img/fight/icons/heatConsumption.png' />
+                <span id='heatConsumptionSpan' class="fontBold colRed">0</span>
+            </div>
+            <div title="Energy Consumption">
+                <img class='ico' src='img/fight/icons/energyConsumption.png' />
+                <span id='energyConsumptionSpan' class="fontBold colLightBlue">0</span>
+            </div>
+        </div>
+
+        <div>
+            <div title="Weapon Damage Basic">
+                <img id='icoFight' class='ico' src='img/fight/icons/explosion.png' />
+                <span id='minimDmgExpFight' class="fontBold colWhite">0</span>
+                <span class="colWhite">-</span>
+                <span id='maxDmgExpFight' class="fontBold colWhite">0</span>
+            </div>
+
+            <div title="Your Damage Between Weapon Minimum And Maximum">
+                <img id='icoFightRandomDmg' class='ico' src='img/fight/icons/explosion.png' />
+                <span id='randomDmg' class="fontBold colWhite">0</span>
+            </div>
+            <div title="Real Damage">
+                <img id='icoFightL' class='ico' src='img/fight/icons/explosion.png' />
+                <span id='totalDmg' class="fontBold colWhite">0</span>
+                <img id='icoFightR' class='ico' src='img/fight/icons/explosion.png' />
+            </div>
+        </div>
+
+        <div>
+            <div title="Cooling Damage">
+                <img class='ico' src='img/fight/icons/coolingDamage.png' />
+                <span id='coolingDamageSpan' class="fontBold colWhite">0</span>
+            </div>
+            <div title="Energy Regen Damage">
+                <img class='ico' src='img/fight/icons/energyRegenDamage.png' />
+                <span id='energyRegenDamageSpan' class="fontBold colLightBlue">0</span>
+            </div>
+            <div title="Psyhical Res Damage">
+                <img class='ico' src='img/fight/icons/pysRes.png' />
+                <span id='pysResSpan' class="fontBold colYellow">0</span>
+            </div>
+        </div>
+
+        <div>
+            <div title="Maximum Heat Damage">
+                <img class='ico' src='img/fight/icons/totalHeatDamage.png' />
+                <span id='totalHeatDamageSpan' class="fontBold colRed">0</span>
+            </div>
+            <div title="Maximum Energy Damage">
+                <img class='ico' src='img/fight/icons/totalEnergyDamage.png' />
+                <span id='totalEnergyDamageSpan' class="fontBold colLightBlue">0</span>
+            </div>
+            <div title="Explosion Res Damage">
+                <img class='ico' src='img/fight/icons/explosionRes.png' />
+                <span id='explosionRespan' class="fontBold colRed">0</span>
+            </div>
+        </div>
+
+        <div>
+            <div title="Heat Damage">
+                <img class='ico' src='img/fight/icons/heatDamage.png' />
+                <span id='HeatDamageSpan' class="fontBold colRed">0</span>
+            </div>
+            <div title="Energy Damage">
+                <img class='ico' src='img/fight/icons/energyDamage.png' />
+                <span id='EnergyDamageSpan' class="fontBold colLightBlue">0</span>
+            </div>
+            <div title="Electric Res Damage">
+                <img class='ico' src='img/fight/icons/electricRes.png' />
+                <span id='electricResSpan' class="fontBold colLightBlue">0</span>
+            </div>
+        </div>
+
+        <div>
+            <div title="Cooling of enemy">
+                <img class='ico' src='img/fight/icons/cooling.png' />
+                <span id='coolingEnemy' class="fontBold colWhite">0</span>
+            </div>
+            <div title="Energy regeneration of enemy">
+                <img class='ico' src='img/fight/icons/energy_regen.png' />
+                <span id='energyRegenEnemy' class="fontBold colLightBlue">0</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/stats.js"></script>
+    <script src="js/createTopPannels.js"></script>
+    <script src="js/weaponTable.js"></script>
+    <script src="js/sideWeponsAttackWIthMele.js"></script>
+    <script src="js/sideWeponsAttackWithBomb.js"></script>
+    <script src="js/sideWeponsAttackWithLaserWeapons.js"></script>
+    <script src="js/sideWeaponsAttackWithFlames.js"></script>
+    <script src="js/sideWeaponsAttackWithRockets.js"></script>
+    <script src="js/sideWeponsAttackWithBullets.js"></script>
+    <script src="js/sideWeaponsAttackWithShootGun.js"></script>
+    <script src="js/sideWeaponsAttackWithLaserBullets.js"></script>
+    <script src="js/sideWeaponsAttackFromTopWithBigBullet.js"></script>
+    <script src="js/topWeaponAttackWithBulletLaserType.js"></script>
+    <script src="js/topWeaponAttackWithSniperType.js"></script>
+    <script src="js/topWeaponAttackWithBombs.js"></script>
+    <script src="js/topWeaponAttackWithRocketsUp.js"></script>
+    <script src="js/topWeaponsAttackWithBulletTop.js"></script>
+    <script src="js/topWeaponAttackWithLaser.js"></script>
+    <script src="js/topWeaponAttackWithMachine.js"></script>
+    <script src="js/topWeaponAttackWith3RocketWeapon.js"></script>
+    <script src="js/topWeaponAttackWithShower.js"></script>
+    <script src="js/fightStats.js"></script>
+    <script src="js/createPlayer1.js"></script>
+    <script src="js/calculateCooldown.js"></script>
+    <script src="js/generateButtonsOnFight.js"></script>
+    <script src="js/changeImageOfGeneratedButtonsFight.js"></script>
+    <script src="js/createBulletAndChangeBackgroundOfThem.js"></script>
+    <script src="js/disableAndEnableButtons.js"></script>
+    <script src="js/AttackButtons.js"></script>
+    <script src="js/mainFight.js"></script>
+
+</body>
+
+</html>

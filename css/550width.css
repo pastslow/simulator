@@ -1,0 +1,57 @@
+@media only screen and (min-width:550px){
+  
+    .SuperMechDivClass {
+        max-height: 425px;
+        background: black;
+    }
+
+    .imgAndDd{
+        display: flex;
+        align-items: center;
+    }
+    .imgPrime {
+        width: 48px;
+        height: 48px;
+    }
+    .sel {
+        width: 74px;
+        font-size: 13px;
+    }
+    .textCenterAndM2 {
+        display: flex;
+        align-items: center;
+    }
+    .selectArenaProcent {
+        font-size: 11px;
+        width: 45px;
+        height: 20px;
+    }
+    .spanDiv{
+        display: flex;
+        font-size: 12.8px;
+    }
+    ul li {
+        width: 130px;
+        height: 40px;
+        font-size: 16px;
+    }
+    .dispNoneSpan{
+        display: block;
+    }
+    .loadingBarDisp{
+        display: none;
+    }
+    .dispNoneContainer{
+        display: block;
+    }
+    .imgUp{
+        display: block;
+    }
+    .imgDown{
+        display: block;
+    }
+    .displayNoneAnd{
+        display: none;
+    }
+   
+}

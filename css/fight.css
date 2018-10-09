@@ -1,0 +1,303 @@
+body{
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+.d-flex{
+    display: flex;
+}
+.widthFull{
+    width: 100%;
+}
+.justif-center{
+    justify-content: center;
+}
+.containerHp{
+    border: 1px solid black;
+    position: relative;
+    top: 16px;
+    left: 56px;
+    height: 22px;
+    width: 185px;
+    background: greenyellow;
+}
+.spanHp{
+    position: relative;
+    left: 129px;
+    top: -7px;
+    font-size: 18px;
+}
+.framestats{
+    height: 115px;
+    width: 345px;
+    background-image: url("frameStats.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+}
+.framestatsReverse{
+    height: 115px;
+    width: 345px;
+    background-image: url("frameStatsReverse.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.containerHeat{
+    position: relative;
+    top: -6px;
+    left: 151px;
+    height: 17px;
+    width: 1px;
+    background: red;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.spanHeatContainer{
+    position: relative;
+    left: 153px;
+    top: -24px;
+    font-size: 13px;
+    color: lightyellow;
+}
+.containerEnergy{
+    position: relative;
+    top: -41px;
+    left: 57px;
+    height: 17px;
+    width: 0px;
+    background: black;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.spanEnergyContainer{
+    position: relative;
+    left: 66px;
+    top: -58px;
+    font-size: 13px;
+    background: rgba(0,0,0,0.4);
+    color: white;
+    width: 57px;
+}
+.pysResSpan{
+    position: relative;
+    top: -53px;
+    left: 66px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+.expResSpan{
+    position: relative;
+    top: -53px;
+    left: 72px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+.eleResSpan{
+    position: relative;
+    top: -53px;
+    left: 78px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+.containerHpP2{
+    border: 1px solid black;
+    position: relative;
+    top: 16px;
+    left: -6px;
+    height: 22px;
+    width: 185px;
+    background: greenyellow;
+}
+.spanHpP2{
+    position: relative;
+    left: 70px;
+    top: -7px;
+    font-size: 18px;
+}
+.containerHeatP2{
+    position: relative;
+    top: -6px;
+    left: 13px;
+    height: 17px;
+    width: 72px;
+    background: red;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.spanHeatContainerP2{
+    position: relative;
+    left: 16px;
+    top: -24px;
+    font-size: 13px;
+    color: lightyellow;
+}
+.containerEnergyP2{
+    position: relative;
+    top: -41px;
+    left: 106px;
+    height: 17px;
+    width: 72px;
+    background: black;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.spanEnergyContainerP2{
+    position: relative;
+    left: 109px;
+    top: -58px;
+    font-size: 13px;
+    color: white;
+    width: 84px;
+}
+.pysResSpanP2{
+    position: relative;
+    top: -53px;
+    left: 154px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+.expResSpanP2{
+    position: relative;
+    top: -53px;
+    left: 108px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+.eleResSpanP2{
+    position: relative;
+    top: -53px;
+    left: 62px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+.armourDiv{
+    position: relative;
+    width: 100px;
+    left: 70px;
+    top: -13px;
+}
+.pointBreakLeg1{
+    width: 5px;
+    height: 5px;
+    border: 1px solid green;
+    position: relative;
+    left: 120px;
+    top: -15px;
+}
+.pointBreakLeg2{
+    width: 5px;
+    height: 5px;
+    border: 1px solid green;
+    position: relative;
+    left: 152px;
+    top: -19px;
+    z-index: -1;
+}
+.pointBreakSide1{
+    width: 5px;
+    height: 5px;
+    border: 1px solid red;
+    position: relative;
+    left: 105px;
+    top: -40px;
+}
+.pointBreakSide2{
+    width: 1px;
+    height: 1px;
+    position: relative;
+    left: 156px;
+    top: -46px;
+    z-index: -1;
+
+}
+.pointBreakLeg1sec{
+    width: 60px;
+    position: absolute;
+    left: -22px;
+    top: -12px;
+}
+.pointBreakLeg2sec{
+    width: 60px;
+    position: absolute;
+    left: -22px;
+    top: -12px;
+    z-index: -1;
+}
+.pointBreakSide1Sec{
+    width: 90px;
+    position: relative;
+    left: -20px;
+    top: -17px;
+}
+.pointBreakSide2Sec{
+    width: 75px;
+    position: relative;
+    left: -20px;
+    top: -13px;
+    z-index: -1;
+}
+.pointBreakSide3{
+    width: 5px;
+    height: 5px;
+    border: 1px solid green;
+    position: relative;
+    left: 105px;
+    top: -90px;
+}
+.pointBreakSide3Sec{
+    width: 90px;
+    position: relative;
+    left: -20px;
+    top: -17px;
+}
+.pointBreakSide4{
+    width: 5px;
+    height: 5px;
+    border: 1px solid green;
+    position: relative;
+    left: 156px;
+    top: -90px;
+    z-index: -1;
+}
+.pointBreakSide4Sec{
+    width: 90px;
+    position: relative;
+    left: -20px;
+    top: -17px;
+}
+.bg-fight{
+    z-index: -1;
+    max-width: 700px;
+    position: relative;
+    top: -182px;
+    opacity: 0.8;
+}
+
+
+.pos-relative{
+    position: relative;
+}
+
+.d-none {
+    display: none;
+}
+
+.z-index{
+    z-index: 1;
+}
+@media only screen and (max-width:700px){
+    .framestats{
+        height: 115px;
+        width: 265px;
+    }
+    .framestatsReverse{
+        height: 115px;
+        width: 265px;
+    }
+}

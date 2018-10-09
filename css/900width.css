@@ -1,0 +1,78 @@
+@media only screen and (min-width:900px) {
+
+    nav{
+        justify-content: space-between;
+    }
+    ul li {
+        width: 140px;
+        height: 40px;
+        font-size: 20px;
+    }
+    .SuperMechDivClass{
+        display: flex;
+        max-width: 700px;
+        margin-top: 50px;
+    }
+    .topBarImg {
+        width: 60px;
+        height: 60px;
+    }
+    .topBarImgFirst {
+        width: 60px;
+        height: 60px;
+    }
+    .dispBlock{
+        display: block;
+    }
+    .itemContainer{
+        width: 100%;
+    }
+    .sel {
+        width: 80px;
+        font-size: 15px;
+    }
+    .imgPrime {
+        width: 60px;
+        height: 60px;
+    }
+    .spanDiv {
+        display: flex;
+        font-size: 16px;
+    }
+    .imgAtrib {
+        width: 24px;
+        height: 24px;
+    }
+    .spanAtrib {
+        width: 40px;
+        font-size: 16px;
+        text-align: center;
+    }
+    .justSpaceAround{
+        justify-content: space-around;
+    }
+    .imgArena {
+        width: 35px;
+        height: 35px;
+    }
+    .selectArenaProcent {
+        font-size: 14px;
+        width: 54px;
+        height: 20px;
+    }
+    .disp900Flex{
+        display: flex;
+    }
+    .ImgLeft0{
+        margin-top: 44px;
+    }
+    
+}
+
+@media only screen and (min-width:1200px) {
+    body{
+        background-image: url("background.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}

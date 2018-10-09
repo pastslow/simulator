@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="img/eye.png" sizes="16x16">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/550width.css">
+    <link rel="stylesheet" href="css/900width.css">
+    <title>SuperMech Simulator</title>
+</head>
+
+<body>
+    <!--Navigation Bar-->
+    <nav>
+        <div class="ochi">
+            <img class="imgNav" src="img/ochi.png" alt="" />
+        </div>
+        <ul>
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li class="firstLi">
+                <a href="#">Simulator</a>
+            </li>
+            <li class="dispNone">
+                <a href="#">War of Dragons</a>
+                <ul>
+                    <li>
+                        <a href="#">Game</a>
+                    </li>
+                    <li>
+                        <a href="#">Forum</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <audio src="audio/a.wav" id="clickAudio"></audio>
+    <!--Loading Bar-->
+    <div id="loadBar" class="loadingBarDisp">
+        <div class="loadingDiv" id="">
+            <span id="loadSpanInfo" class="loadSpanInf">Please wait</span>
+            <div class="loadingBar">
+                <div class="insideLoadingBar" id="insideLoadingBar">
+
+                </div>
+            </div>
+        </div>
+        <div class="spanLoadDiv">
+            <span class="dispNone" id="attention">Atention if you start a new simulation you will erase your last save
+                !</span>
+            <span class="dispNone greenColor" id="welcome">Welcome press on
+                <b>start new mech</b> and you will start the simulation. </span>
+        </div>
+        <div class="btnDiv" id="btnDiv">
+            <input type="button" class="btnOne dispNone" onclick="loadWhatYouHaveSave()" name="" value="Load" id="loadBtn" />
+            <input type="button" class="btnOne dispNone" onclick="selectOption(0)" name="" value="Start new mech" id="startNew" />
+        </div>
+    </div>
+    <!-- Container for supermech simulator-->
+    <div id="SuperMechDivId" class="dispNoneContainer">
+        <div class="SuperMechDivClass">
+            <div id="simulatorId" class="displayNoneAnd">
+                <div class="disp900Flex">
+                    <!--Change menu using top bar-->
+                    <div class="dispFlex lineH dispBlock">
+                        <div class="ImgLeft0" id="DmgTestBackground">
+                            <a href="fightByJavaScript.html"><img onclick="saveStatus()" id="dmgTestImgId" class="topBarImg"
+                                    title="Damage Test" src="img/Hunt.png" alt="" /></a>
+                        </div>
+                        <div class="ImgLeft1" id="SideWeponsBackground">
+                            <img onclick="getToSideWepMenu()" id="sideWepImgId" class="topBarImg" title="Side Wepons"
+                                src="img/Icons/Sidewepon.png" alt="">
+                        </div>
+                        <div class="ImgLeft" id="TopWeponsBackground">
+                            <img onclick="getToTopWepMenu()" id="topWepImgId" class="topBarImg" title="Top Weapons" src="img/Icons/topwepons.png"
+                                alt="">
+                        </div>
+                        <div class="ImgLeft" id="UtilityBackground">
+                            <img onclick="getToUtilytiesMenu()" id="utilityImgId" class="topBarImg" title="Utility" src="img/Icons/utility.png"
+                                alt="">
+                        </div>
+                        <div class="ImgLeft ; FirstModuleBackground" id="ModuleBackground">
+                            <img onclick="getToModulesMenu()" id="modulesImgId" class="topBarImgFirst" title="Modules"
+                                src="img/Icons/modules.png" alt="">
+                        </div>
+                    </div>
+                    <!-- Container for all items-->
+                    <div class="itemContainer">
+                        <!-- Container for Armours and Atributes -->
+                        <div class="dispFlex justSpaceAround">
+                            <!--Armours-->
+                            <div>
+                                <div class="spanDiv">
+                                    <span class="dispNoneSpan">Select Your &nbsp</span>
+                                    <span> Armour:</span>
+                                </div>
+                                <div class="imgAndDd">
+                                    <div>
+                                        <img id="armourImgId" class="imgPrime" src="img/armour/Nothing.png" alt="" />
+                                    </div>
+                                    <div>
+                                        <select onchange="executeAllFunctions()" class="sel" name="" id="armourSelectDd">
+                                            <option value="Nothing">Nothing</option>
+                                            <option value="ARCHIMOND_L">ARCHIMOND_L</option>
+                                            <option value="AVENGER">AVENGER</option>
+                                            <option value="BRUTALITY">BRUTALITY</option>
+                                            <option value="GRIMREAPER">GRIMREAPER</option>
+                                            <option value="INTERCEPTOR">INTERCEPTOR</option>
+                                            <option value="Lightning_Platinum_Vest">LIGHTNING PLATINUM VEST</option>
+                                            <option value="Molten_platinum_vest">MOLTEN PLATINUM VEST</option>
+                                            <option value="NAGA">NAGA</option>
+                                            <option value="NIGHTMARE">NIGHTMARE</option>
+                                            <option value="SITH">SITH</option>
+                                            <option value="WINDIGO">WINDIGO</option>
+                                            <option value="ZARKARES">ZARKARES</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!--End of container for Armours-->
+                            </div>
+                            <!-- Atributes -->
+                            <div class="dispFlexWithColum">
+                                <div class="flexWithAlign">
+                                    <div class="flexWithAlign">
+                                        <img class="imgAtrib" src="img/atrib/hp.png" alt="" />
+                                        <span id="spanHp" class="spanAtrib">0</span>
+                                    </div>
+                                    <div class="flexWithAlign">
+                                        <img class="imgAtrib" src="img/atrib/heat.png" alt="" />
+                                        <span id="spanHeat" class="spanAtrib">0</span>
+                                    </div>
+                                    <div class="flexWithAlign">
+                                        <img class="imgAtrib" src="img/atrib/cooling.png" alt="" />
+                                        <span id="spanCooling" class="spanAtrib">0</span>
+                                    </div>
+                                    <div class="flexWithAlign">
+                                        <img class="imgAtrib" src="img/atrib/energy.png" alt="" />
+                                        <span id="spanEnergy" class="spanAtrib">0</span>
+                                    </div>
+                                    <div class="flexWithAlign">
+                                        <img class="imgAtrib" src="img/atrib/energy_regen.png" alt="" />
+                                        <span id="spanEngRegen" class="spanAtrib">0</span>
+                                    </div>
+                                </div>
+
+                                <div class="flexWithAlign">
+                                    <div class="flexWithAlign">
+                                        <img class="imgAtrib" src="img/atrib/expresist.png" alt="" />
+                                        <span id="spanExpRes" class="spanAtrib">0</span>
+                                    </div>
+                                    <div class="flexWithAlign">
+                                        <img class="imgAtrib" src="img/atrib/eleresist.png" alt="" />
+                                        <span id="spanEleRes" class="spanAtrib">0</span>
+                                    </div>
+                                    <div class="flexWithAlign">
+                                        <img class="imgAtrib" src="img/atrib/pysresist.png" alt="" />
+                                        <span id="spanPysRes" class="spanAtrib">0</span>
+                                    </div>
+                                    <div class="flexWithAlign">
+                                        <img class="imgAtrib" src="img/atrib/walking.png" alt="" />
+                                        <span id="spanWalking" class="spanAtrib">0</span>
+                                    </div>
+                                    <div class="flexWithAlign">
+                                        <img class="imgAtrib" src="img/atrib/jumping.png" alt="" />
+                                        <span id="spanJumping" class="spanAtrib">0</span>
+                                    </div>
+                                </div>
+                                <div class="flexWithAlign">
+                                    <img class="imgAtrib" src="img/atrib/weight.png" alt="" />
+                                    <span id="spanWeight" class="spanAtrib">0</span>
+                                    <span id="spanWeightStatic" class="spanAtrib">/1000</span>
+                                </div>
+                                <!--End of Atributes container-->
+                            </div>
+                        </div>
+                        <!-- Legs-->
+                        <div class="dispFlex justSpaceAround">
+                            <div>
+                                <div class="spanDiv">
+                                    <span class="dispNoneSpan">Select Your &nbsp</span>
+                                    <span>Legs:</span>
+                                </div>
+                                <div class="imgAndDd">
+                                    <div>
+                                        <img id="legsImgId" class="imgPrime" src="img/legs/Nothing.png" alt="" />
+                                    </div>
+                                    <div>
+                                        <select onchange="executeAllFunctions()" class="sel" name="" id="legsSelectDd">
+                                            <option value="Nothing">Nothing</option>
+                                            <option value="GRAVE_DIGGERS">GRAVE_DIGGERS</option>
+                                            <option value="IRON_BOOTS">IRON BOOTS</option>
+                                            <option value="ROLLING_BEASTS">ROLLING BEASTS(L)</option>
+                                            <option value="THE_CLAW">THE CLAW(L)</option>
+                                            <option value="SCORCHING_FEET">SCORCHING_FEET</option>
+                                            <option value="DEVOURING_PAWS">DEVOURING PAWS</option>
+                                            <option value="SPARKED_RUNNERS">SPARKED RUNNERS(L)</option>
+                                            <option value="DYNAMIC_STOMPERS">DYNAMIC STOMPERS</option>
+                                            <option value="CHARGED_WALKERS">CHARGED WALKERS</option>
+                                            <option value="LIGHTNING_SUPPORTERS">LIGHTNING SUPPORTERS</option>
+                                            <option value="DYNAMITE_BOOTS">DYNAMITE BOOTS</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Some informations about the owner of the app-->
+                            <div>
+                                <div class="marginTop">
+                                    <span>
+                                        <i>made by
+                                            <b>Robert Marian</b>
+                                        </i>
+                                    </span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--Module 1-8 -->
+                        <div id="moduleContainer">
+                            <!--Module 1 to 4 -->
+                            <div class="dispFlex">
+                                <!--Module 1-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Module 1:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img id="module1ImgId" class="imgPrime" src="img/core/Nothing.png" alt="" />
+                                        </div>
+                                        <div>
+                                            <select onchange="executeAllFunctions(); onModuleItemChange()" class="sel moduleSelect"
+                                                name="" id="module1SelectDd">
+                                                <option value="Nothing">Nothing</option>
+                                                <option value="HEAT_ENGINE">HEAT_ENGINE</option>
+                                                <option value="HEAT_STORAGE_UNIT_L">HEAT_STORAGE_UNIT_L</option>
+                                                <option value="COOLING_MASS_BOOSTER">COOLING_MASS_BOOSTER</option>
+                                                <option value="ENERGY_ENGINE">ENERGY_ENGINE</option>
+                                                <option value="ENERGY_STORAGE_UNIT_L">ENERGY_STORAGE_UNIT_L</option>
+                                                <option value="ENERGY_MASS_BOOSTER">ENERGY_MASS_BOOSTER</option>
+                                                <option value="PLATINUM_PLATING_L">PLATINUM_PLATING_L</option>
+                                                <option value="Iron_Plating__Epic">IRON PLATING EPIC</option>
+                                                <option id="modul1MaxProt" value="MAXIMUM_PROTECTOR_L">MAXIMUM
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul1MightProt" value="MIGHTY_PROTECTOR_L">MIGHTY
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul1SuperProt" value="SUPERCHARGE_PROTECTOR_L">SUPERCHARGE
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul1UltraProt" value="ULTRAHOT_PROTECTOR_L">ULTRAHOT
+                                                    PROTECTOR(L)</option>
+                                                <option value="Savior_Resistance">SAVIOR RESISTANCE</option>
+                                                <option value="Physical_Protector">PHYSICAL PROTECTOR</option>
+                                                <option value="Heat_Protector">HEAT PROTECTOR</option>
+                                                <option value="Energy_Protector">ENERGY PROTECTOR</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Module 2-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Module 2:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img id="module2ImgId" class="imgPrime" src="img/core/Nothing.png" alt="" />
+                                        </div>
+                                        <div>
+                                            <select onchange="executeAllFunctions()" class="sel moduleSelect" name=""
+                                                id="module2SelectDd">
+                                                <option value="Nothing">Nothing</option>
+                                                <option value="HEAT_ENGINE">HEAT_ENGINE</option>
+                                                <option value="HEAT_STORAGE_UNIT_L">HEAT_STORAGE_UNIT_L</option>
+                                                <option value="COOLING_MASS_BOOSTER">COOLING_MASS_BOOSTER</option>
+                                                <option value="ENERGY_ENGINE">ENERGY_ENGINE</option>
+                                                <option value="ENERGY_STORAGE_UNIT_L">ENERGY_STORAGE_UNIT_L</option>
+                                                <option value="ENERGY_MASS_BOOSTER">ENERGY_MASS_BOOSTER</option>
+                                                <option value="PLATINUM_PLATING_L">PLATINUM_PLATING_L</option>
+                                                <option value="Iron_Plating__Epic">IRON PLATING EPIC</option>
+                                                <option id="modul2MaxProt" value="MAXIMUM_PROTECTOR_L">MAXIMUM
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul2MightProt" value="MIGHTY_PROTECTOR_L">MIGHTY
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul2SuperProt" value="SUPERCHARGE_PROTECTOR_L">SUPERCHARGE
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul2UltraProt" value="ULTRAHOT_PROTECTOR_L">ULTRAHOT
+                                                    PROTECTOR(L)</option>
+                                                <option value="Savior_Resistance">SAVIOR RESISTANCE</option>
+                                                <option value="Physical_Protector">PHYSICAL PROTECTOR</option>
+                                                <option value="Heat_Protector">HEAT PROTECTOR</option>
+                                                <option value="Energy_Protector">ENERGY PROTECTOR</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Module 3-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Module 3:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img id="module3ImgId" class="imgPrime" src="img/core/Nothing.png" alt="" />
+                                        </div>
+                                        <div>
+                                            <select onchange="executeAllFunctions()" class="sel moduleSelect" name=""
+                                                id="module3SelectDd">
+                                                <option value="Nothing">Nothing</option>
+                                                <option value="HEAT_ENGINE">HEAT_ENGINE</option>
+                                                <option value="HEAT_STORAGE_UNIT_L">HEAT_STORAGE_UNIT_L</option>
+                                                <option value="COOLING_MASS_BOOSTER">COOLING_MASS_BOOSTER</option>
+                                                <option value="ENERGY_ENGINE">ENERGY_ENGINE</option>
+                                                <option value="ENERGY_STORAGE_UNIT_L">ENERGY_STORAGE_UNIT_L</option>
+                                                <option value="ENERGY_MASS_BOOSTER">ENERGY_MASS_BOOSTER</option>
+                                                <option value="PLATINUM_PLATING_L">PLATINUM_PLATING_L</option>
+                                                <option value="Iron_Plating__Epic">IRON PLATING EPIC</option>
+                                                <option id="modul3MaxProt" value="MAXIMUM_PROTECTOR_L">MAXIMUM
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul3MightProt" value="MIGHTY_PROTECTOR_L">MIGHTY
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul3SuperProt" value="SUPERCHARGE_PROTECTOR_L">SUPERCHARGE
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul3UltraProt" value="ULTRAHOT_PROTECTOR_L">ULTRAHOT
+                                                    PROTECTOR(L)</option>
+                                                <option value="Savior_Resistance">SAVIOR RESISTANCE</option>
+                                                <option value="Physical_Protector">PHYSICAL PROTECTOR</option>
+                                                <option value="Heat_Protector">HEAT PROTECTOR</option>
+                                                <option value="Energy_Protector">ENERGY PROTECTOR</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Module 4-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Module 4:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img id="module4ImgId" class="imgPrime" src="img/core/Nothing.png" alt="" />
+                                        </div>
+                                        <div>
+                                            <select onchange="executeAllFunctions()" class="sel moduleSelect" name=""
+                                                id="module4SelectDd">
+                                                <option value="Nothing">Nothing</option>
+                                                <option value="HEAT_ENGINE">HEAT_ENGINE</option>
+                                                <option value="HEAT_STORAGE_UNIT_L">HEAT_STORAGE_UNIT_L</option>
+                                                <option value="COOLING_MASS_BOOSTER">COOLING_MASS_BOOSTER</option>
+                                                <option value="ENERGY_ENGINE">ENERGY_ENGINE</option>
+                                                <option value="ENERGY_STORAGE_UNIT_L">ENERGY_STORAGE_UNIT_L</option>
+                                                <option value="ENERGY_MASS_BOOSTER">ENERGY_MASS_BOOSTER</option>
+                                                <option value="PLATINUM_PLATING_L">PLATINUM_PLATING_L</option>
+                                                <option value="Iron_Plating__Epic">IRON PLATING EPIC</option>
+                                                <option id="modul4MaxProt" value="MAXIMUM_PROTECTOR_L">MAXIMUM
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul4MightProt" value="MIGHTY_PROTECTOR_L">MIGHTY
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul4SuperProt" value="SUPERCHARGE_PROTECTOR_L">SUPERCHARGE
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul4UltraProt" value="ULTRAHOT_PROTECTOR_L">ULTRAHOT
+                                                    PROTECTOR(L)</option>
+                                                <option value="Savior_Resistance">SAVIOR RESISTANCE</option>
+                                                <option value="Physical_Protector">PHYSICAL PROTECTOR</option>
+                                                <option value="Heat_Protector">HEAT PROTECTOR</option>
+                                                <option value="Energy_Protector">ENERGY PROTECTOR</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End of the modules 1-4 -->
+                            </div>
+                            <!--Module 5 to 8 -->
+                            <div class="dispFlex">
+                                <!--Module 5-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Module 5:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img id="module5ImgId" class="imgPrime" src="img/core/Nothing.png" alt="" />
+                                        </div>
+                                        <div>
+                                            <select onchange="executeAllFunctions()" class="sel moduleSelect" name=""
+                                                id="module5SelectDd">
+                                                <option value="Nothing">Nothing</option>
+                                                <option value="HEAT_ENGINE">HEAT_ENGINE</option>
+                                                <option value="HEAT_STORAGE_UNIT_L">HEAT_STORAGE_UNIT_L</option>
+                                                <option value="COOLING_MASS_BOOSTER">COOLING_MASS_BOOSTER</option>
+                                                <option value="ENERGY_ENGINE">ENERGY_ENGINE</option>
+                                                <option value="ENERGY_STORAGE_UNIT_L">ENERGY_STORAGE_UNIT_L</option>
+                                                <option value="ENERGY_MASS_BOOSTER">ENERGY_MASS_BOOSTER</option>
+                                                <option value="PLATINUM_PLATING_L">PLATINUM_PLATING_L</option>
+                                                <option value="Iron_Plating__Epic">IRON PLATING EPIC</option>
+                                                <option id="modul5MaxProt" value="MAXIMUM_PROTECTOR_L">MAXIMUM
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul5MightProt" value="MIGHTY_PROTECTOR_L">MIGHTY
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul5SuperProt" value="SUPERCHARGE_PROTECTOR_L">SUPERCHARGE
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul5UltraProt" value="ULTRAHOT_PROTECTOR_L">ULTRAHOT
+                                                    PROTECTOR(L)</option>
+                                                <option value="Savior_Resistance">SAVIOR RESISTANCE</option>
+                                                <option value="Physical_Protector">PHYSICAL PROTECTOR</option>
+                                                <option value="Heat_Protector">HEAT PROTECTOR</option>
+                                                <option value="Energy_Protector">ENERGY PROTECTOR</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Module 6-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Module 6:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img id="module6ImgId" class="imgPrime" src="img/core/Nothing.png" alt="" />
+                                        </div>
+                                        <div>
+                                            <select onchange="executeAllFunctions()" class="sel moduleSelect" name=""
+                                                id="module6SelectDd">
+                                                <option value="Nothing">Nothing</option>
+                                                <option value="HEAT_ENGINE">HEAT_ENGINE</option>
+                                                <option value="HEAT_STORAGE_UNIT_L">HEAT_STORAGE_UNIT_L</option>
+                                                <option value="COOLING_MASS_BOOSTER">COOLING_MASS_BOOSTER</option>
+                                                <option value="ENERGY_ENGINE">ENERGY_ENGINE</option>
+                                                <option value="ENERGY_STORAGE_UNIT_L">ENERGY_STORAGE_UNIT_L</option>
+                                                <option value="ENERGY_MASS_BOOSTER">ENERGY_MASS_BOOSTER</option>
+                                                <option value="PLATINUM_PLATING_L">PLATINUM_PLATING_L</option>
+                                                <option value="Iron_Plating__Epic">IRON PLATING EPIC</option>
+                                                <option id="modul6MaxProt" value="MAXIMUM_PROTECTOR_L">MAXIMUM
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul6MightProt" value="MIGHTY_PROTECTOR_L">MIGHTY
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul6SuperProt" value="SUPERCHARGE_PROTECTOR_L">SUPERCHARGE
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul6UltraProt" value="ULTRAHOT_PROTECTOR_L">ULTRAHOT
+                                                    PROTECTOR(L)</option>
+                                                <option value="Savior_Resistance">SAVIOR RESISTANCE</option>
+                                                <option value="Physical_Protector">PHYSICAL PROTECTOR</option>
+                                                <option value="Heat_Protector">HEAT PROTECTOR</option>
+                                                <option value="Energy_Protector">ENERGY PROTECTOR</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Module 7-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Module 7:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img id="module7ImgId" class="imgPrime" src="img/core/Nothing.png" alt="" />
+                                        </div>
+                                        <div>
+                                            <select onchange="executeAllFunctions()" class="sel moduleSelect" name=""
+                                                id="module7SelectDd">
+                                                <option value="Nothing">Nothing</option>
+                                                <option value="HEAT_ENGINE">HEAT_ENGINE</option>
+                                                <option value="HEAT_STORAGE_UNIT_L">HEAT_STORAGE_UNIT_L</option>
+                                                <option value="COOLING_MASS_BOOSTER">COOLING_MASS_BOOSTER</option>
+                                                <option value="ENERGY_ENGINE">ENERGY_ENGINE</option>
+                                                <option value="ENERGY_STORAGE_UNIT_L">ENERGY_STORAGE_UNIT_L</option>
+                                                <option value="ENERGY_MASS_BOOSTER">ENERGY_MASS_BOOSTER</option>
+                                                <option value="PLATINUM_PLATING_L">PLATINUM_PLATING_L</option>
+                                                <option value="Iron_Plating__Epic">IRON PLATING EPIC</option>
+                                                <option id="modul7MaxProt" value="MAXIMUM_PROTECTOR_L">MAXIMUM
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul7MightProt" value="MIGHTY_PROTECTOR_L">MIGHTY
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul7SuperProt" value="SUPERCHARGE_PROTECTOR_L">SUPERCHARGE
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul7UltraProt" value="ULTRAHOT_PROTECTOR_L">ULTRAHOT
+                                                    PROTECTOR(L)</option>
+                                                <option value="Savior_Resistance">SAVIOR RESISTANCE</option>
+                                                <option value="Physical_Protector">PHYSICAL PROTECTOR</option>
+                                                <option value="Heat_Protector">HEAT PROTECTOR</option>
+                                                <option value="Energy_Protector">ENERGY PROTECTOR</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Module 8-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Module 8:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img id="module8ImgId" class="imgPrime" src="img/core/Nothing.png" alt="" />
+                                        </div>
+                                        <div>
+                                            <select onchange="executeAllFunctions()" class="sel moduleSelect" name=""
+                                                id="module8SelectDd">
+                                                <option value="Nothing">Nothing</option>
+                                                <option value="HEAT_ENGINE">HEAT_ENGINE</option>
+                                                <option value="HEAT_STORAGE_UNIT_L">HEAT_STORAGE_UNIT_L</option>
+                                                <option value="COOLING_MASS_BOOSTER">COOLING_MASS_BOOSTER</option>
+                                                <option value="ENERGY_ENGINE">ENERGY_ENGINE</option>
+                                                <option value="ENERGY_STORAGE_UNIT_L">ENERGY_STORAGE_UNIT_L</option>
+                                                <option value="ENERGY_MASS_BOOSTER">ENERGY_MASS_BOOSTER</option>
+                                                <option value="PLATINUM_PLATING_L">PLATINUM_PLATING_L</option>
+                                                <option value="Iron_Plating__Epic">IRON PLATING EPIC</option>
+                                                <option id="modul8MaxProt" value="MAXIMUM_PROTECTOR_L">MAXIMUM
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul8MightProt" value="MIGHTY_PROTECTOR_L">MIGHTY
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul8SuperProt" value="SUPERCHARGE_PROTECTOR_L">SUPERCHARGE
+                                                    PROTECTOR(L)</option>
+                                                <option id="modul8UltraProt" value="ULTRAHOT_PROTECTOR_L">ULTRAHOT
+                                                    PROTECTOR(L)</option>
+                                                <option value="Savior_Resistance">SAVIOR RESISTANCE</option>
+                                                <option value="Physical_Protector">PHYSICAL PROTECTOR</option>
+                                                <option value="Heat_Protector">HEAT PROTECTOR</option>
+                                                <option value="Energy_Protector">ENERGY PROTECTOR</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End of the modules 5-8 -->
+                            </div>
+                        </div>
+                        <!-- Side Wepons 1-4-->
+                        <div class="dispNone" id="sideWepContainer">
+                            <!--Side Wepons 1-2 -->
+                            <div class="dispFlex">
+                                <!--Side wepon 1-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Side Weapon 1:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img id="sideWep1ImgId" class="imgPrime" src="img/SideWepons/Nothing.png"
+                                                alt="" />
+                                        </div>
+                                        <div>
+                                            <select onchange="executeAllFunctions()" class="sel" name="" id="sideWep1SelectDd">
+                                                <option value="Nothing">Nothing</option>
+                                                <option value="ABOMINATION_L">ABOMINATION(L)</option>
+                                                <option value="ANNIHILATION">ANNIHILATION</option>
+                                                <option value="ARMOR_ANNIHILATOR_L">ARMOR ANNIHILATOR(L)</option>
+                                                <option value="ARMOR_DISSOLVER_L">ARMOR DISSOLVER(L)</option>
+                                                <option value="ASH_CREATOR_L">ASH CREATOR(L)</option>
+                                                <option value="BACKBREAKER">BACKBREAKER</option>
+                                                <option value="BIGDADDY_L">BIGDADDY(L)</option>
+                                                <option value="BLOODWEEP_L">BLOODWEEP(L)</option>
+                                                <option value="BRIGHTROAR_L">BRIGHTROAR(L)</option>
+                                                <option value="BULLDOG_L">BULLDOG(L)</option>
+                                                <option value="BUNKER_SHELLL">BUNKER SHELL(L)</option>
+                                                <option value="CHAOS_BRINGER_L">CHAOS BRINGER(L)</option>
+                                                <option value="CORRUPT_LIGHT">CORRUPT LIGHT</option>
+                                                <option value="CRIMSON_RAPTURE_L">CRIMSON RAPTURE(L)</option>
+                                                <option value="DAWNBLAZE">DAWNBLAZE</option>
+                                                <option value="EMP">EMP</option>
+                                                <option value="FLAMINATOR">FLAMINATOR</option>
+                                                <option value="Flaming_hammer">FLAMING HAMMER</option>
+                                                <option value="HEAT_BOMB">HEAT BOMB</option>
+                                                <option value="HERONMARK_L">HERONMARK(L)</option>
+                                                <option value="HOT_FLASH">HOT FLASH</option>
+                                                <option value="LAST_WORDS">LAST WORDS</option>
+                                                <option value="MAGMA_BLAST_L">MAGMA BLAST(L)</option>
+                                                <option value="MALICE_BEAM">MALICE BEAM</option>
+                                                <option value="MERCY_L">MERCY(L)</option>
+                                                <option value="MORTAL_BULLET_L">MORTAL BULLET(L)</option>
+                                                <option value="NIGHTFALL">NIGHTFALL</option>
+                                                <option value="PURIFIER_L">PURIFIER(L)</option>
+                                                <option value="RECKONING_L">RECKONING(L)</option>
+                                                <option value="SERAPHBLADE_L">SERAPHBLADE(L)</option>
+                                                <option value="SORROW_L">SORROW(L)</option>
+                                                <option value="STORMWEAVER_L">STORMWEAVER(L)</option>
+                                                <option value="SWEETIE_L">SWEETIE(L)</option>
+                                                <option value="TERROR_CRY">TERROR CRY</option>
+                                                <option value="TERRORBLADE_L">TERRORBLADE(L)</option>
+                                                <option value="ULTRABRIGHT">ULTRABRIGHT</option>
+                                                <option value="WARHAMMER">WARHAMMER</option>
+                                                <option value="VIKING_HAMMER">VIKING HAMMER</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Side wepon 2-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Side Weapon 2:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img id="sideWep2ImgId" class="imgPrime" src="img/SideWepons/Nothing_R.png"
+                                                alt="" />
+                                        </div>
+                                        <div>
+                                            <select onchange="executeAllFunctions()" class="sel" name="" id="sideWep2SelectDd">
+                                                <option value="Nothing_R">Nothing</option>
+                                                <option value="ABOMINATION_L">ABOMINATION(L)</option>
+                                                <option value="ANNIHILATION">ANNIHILATION</option>
+                                                <option value="ARMOR_ANNIHILATOR_L">ARMOR ANNIHILATOR(L)</option>
+                                                <option value="ARMOR_DISSOLVER_L">ARMOR DISSOLVER(L)</option>
+                                                <option value="ASH_CREATOR_L">ASH CREATOR(L)</option>
+                                                <option value="BACKBREAKER">BACKBREAKER</option>
+                                                <option value="BIGDADDY_L">BIGDADDY(L)</option>
+                                                <option value="BLOODWEEP_L">BLOODWEEP(L)</option>
+                                                <option value="BRIGHTROAR_L">BRIGHTROAR(L)</option>
+                                                <option value="BULLDOG_L">BULLDOG(L)</option>
+                                                <option value="BUNKER_SHELLL">BUNKER SHELL(L)</option>
+                                                <option value="CHAOS_BRINGER_L">CHAOS BRINGER(L)</option>
+                                                <option value="CORRUPT_LIGHT">CORRUPT LIGHT</option>
+                                                <option value="CRIMSON_RAPTURE_L">CRIMSON RAPTURE(L)</option>
+                                                <option value="DAWNBLAZE">DAWNBLAZE</option>
+                                                <option value="EMP">EMP</option>
+                                                <option value="FLAMINATOR">FLAMINATOR</option>
+                                                <option value="Flaming_hammer">FLAMING HAMMER</option>
+                                                <option value="HEAT_BOMB">HEAT BOMB</option>
+                                                <option value="HERONMARK_L">HERONMARK(L)</option>
+                                                <option value="HOT_FLASH">HOT FLASH</option>
+                                                <option value="LAST_WORDS">LAST WORDS</option>
+                                                <option value="MAGMA_BLAST_L">MAGMA BLAST(L)</option>
+                                                <option value="MALICE_BEAM">MALICE BEAM</option>
+                                                <option value="MERCY_L">MERCY(L)</option>
+                                                <option value="MORTAL_BULLET_L">MORTAL BULLET(L)</option>
+                                                <option value="NIGHTFALL">NIGHTFALL</option>
+                                                <option value="PURIFIER_L">PURIFIER(L)</option>
+                                                <option value="RECKONING_L">RECKONING(L)</option>
+                                                <option value="SERAPHBLADE_L">SERAPHBLADE(L)</option>
+                                                <option value="SORROW_L">SORROW(L)</option>
+                                                <option value="STORMWEAVER_L">STORMWEAVER(L)</option>
+                                                <option value="SWEETIE_L">SWEETIE(L)</option>
+                                                <option value="TERROR_CRY">TERROR CRY</option>
+                                                <option value="TERRORBLADE_L">TERRORBLADE(L)</option>
+                                                <option value="ULTRABRIGHT">ULTRABRIGHT</option>
+                                                <option value="WARHAMMER">WARHAMMER</option>
+                                                <option value="VIKING_HAMMER">VIKING HAMMER</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Side Weapons 3-4 -->
+                            <div class="dispFlex">
+                                <!--Side weapon 3-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Side Weapon 3:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img id="sideWep3ImgId" class="imgPrime" src="img/SideWepons/Nothing.png"
+                                                alt="" />
+                                        </div>
+                                        <div>
+                                            <select onchange="executeAllFunctions()" class="sel" name="" id="sideWep3SelectDd">
+                                                <option value="Nothing">Nothing</option>
+                                                <option value="ABOMINATION_L">ABOMINATION(L)</option>
+                                                <option value="ANNIHILATION">ANNIHILATION</option>
+                                                <option value="ARMOR_ANNIHILATOR_L">ARMOR ANNIHILATOR(L)</option>
+                                                <option value="ARMOR_DISSOLVER_L">ARMOR DISSOLVER(L)</option>
+                                                <option value="ASH_CREATOR_L">ASH CREATOR(L)</option>
+                                                <option value="BACKBREAKER">BACKBREAKER</option>
+                                                <option value="BIGDADDY_L">BIGDADDY(L)</option>
+                                                <option value="BLOODWEEP_L">BLOODWEEP(L)</option>
+                                                <option value="BRIGHTROAR_L">BRIGHTROAR(L)</option>
+                                                <option value="BULLDOG_L">BULLDOG(L)</option>
+                                                <option value="BUNKER_SHELLL">BUNKER SHELL(L)</option>
+                                                <option value="CHAOS_BRINGER_L">CHAOS BRINGER(L)</option>
+                                                <option value="CORRUPT_LIGHT">CORRUPT LIGHT</option>
+                                                <option value="CRIMSON_RAPTURE_L">CRIMSON RAPTURE(L)</option>
+                                                <option value="DAWNBLAZE">DAWNBLAZE</option>
+                                                <option value="EMP">EMP</option>
+                                                <option value="FLAMINATOR">FLAMINATOR</option>
+                                                <option value="Flaming_hammer">FLAMING HAMMER</option>
+                                                <option value="HEAT_BOMB">HEAT BOMB</option>
+                                                <option value="HERONMARK_L">HERONMARK(L)</option>
+                                                <option value="HOT_FLASH">HOT FLASH</option>
+                                                <option value="LAST_WORDS">LAST WORDS</option>
+                                                <option value="MAGMA_BLAST_L">MAGMA BLAST(L)</option>
+                                                <option value="MALICE_BEAM">MALICE BEAM</option>
+                                                <option value="MERCY_L">MERCY(L)</option>
+                                                <option value="MORTAL_BULLET_L">MORTAL BULLET(L)</option>
+                                                <option value="NIGHTFALL">NIGHTFALL</option>
+                                                <option value="PURIFIER_L">PURIFIER(L)</option>
+                                                <option value="RECKONING_L">RECKONING(L)</option>
+                                                <option value="SERAPHBLADE_L">SERAPHBLADE(L)</option>
+                                                <option value="SORROW_L">SORROW(L)</option>
+                                                <option value="STORMWEAVER_L">STORMWEAVER(L)</option>
+                                                <option value="SWEETIE_L">SWEETIE(L)</option>
+                                                <option value="TERROR_CRY">TERROR CRY</option>
+                                                <option value="TERRORBLADE_L">TERRORBLADE(L)</option>
+                                                <option value="ULTRABRIGHT">ULTRABRIGHT</option>
+                                                <option value="WARHAMMER">WARHAMMER</option>
+                                                <option value="VIKING_HAMMER">VIKING HAMMER</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Side weapon 4-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Side Weapon 4:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img id="sideWep4ImgId" class="imgPrime" src="img/SideWepons/Nothing_R.png"
+                                                alt="" />
+                                        </div>
+                                        <div>
+                                            <select onchange="executeAllFunctions()" class="sel" name="" id="sideWep4SelectDd">
+                                                <option value="Nothing_R">Nothing</option>
+                                                <option value="ABOMINATION_L">ABOMINATION(L)</option>
+                                                <option value="ANNIHILATION">ANNIHILATION</option>
+                                                <option value="ARMOR_ANNIHILATOR_L">ARMOR ANNIHILATOR(L)</option>
+                                                <option value="ARMOR_DISSOLVER_L">ARMOR DISSOLVER(L)</option>
+                                                <option value="ASH_CREATOR_L">ASH CREATOR(L)</option>
+                                                <option value="BACKBREAKER">BACKBREAKER</option>
+                                                <option value="BIGDADDY_L">BIGDADDY(L)</option>
+                                                <option value="BLOODWEEP_L">BLOODWEEP(L)</option>
+                                                <option value="BRIGHTROAR_L">BRIGHTROAR(L)</option>
+                                                <option value="BULLDOG_L">BULLDOG(L)</option>
+                                                <option value="BUNKER_SHELLL">BUNKER SHELL(L)</option>
+                                                <option value="CHAOS_BRINGER_L">CHAOS BRINGER(L)</option>
+                                                <option value="CORRUPT_LIGHT">CORRUPT LIGHT</option>
+                                                <option value="CRIMSON_RAPTURE_L">CRIMSON RAPTURE(L)</option>
+                                                <option value="DAWNBLAZE">DAWNBLAZE</option>
+                                                <option value="EMP">EMP</option>
+                                                <option value="FLAMINATOR">FLAMINATOR</option>
+                                                <option value="Flaming_hammer">FLAMING HAMMER</option>
+                                                <option value="HEAT_BOMB">HEAT BOMB</option>
+                                                <option value="HERONMARK_L">HERONMARK(L)</option>
+                                                <option value="HOT_FLASH">HOT FLASH</option>
+                                                <option value="LAST_WORDS">LAST WORDS</option>
+                                                <option value="MAGMA_BLAST_L">MAGMA BLAST(L)</option>
+                                                <option value="MALICE_BEAM">MALICE BEAM</option>
+                                                <option value="MERCY_L">MERCY(L)</option>
+                                                <option value="MORTAL_BULLET_L">MORTAL BULLET(L)</option>
+                                                <option value="NIGHTFALL">NIGHTFALL</option>
+                                                <option value="PURIFIER_L">PURIFIER(L)</option>
+                                                <option value="RECKONING_L">RECKONING(L)</option>
+                                                <option value="SERAPHBLADE_L">SERAPHBLADE(L)</option>
+                                                <option value="SORROW_L">SORROW(L)</option>
+                                                <option value="STORMWEAVER_L">STORMWEAVER(L)</option>
+                                                <option value="SWEETIE_L">SWEETIE(L)</option>
+                                                <option value="TERROR_CRY">TERROR CRY</option>
+                                                <option value="TERRORBLADE_L">TERRORBLADE(L)</option>
+                                                <option value="ULTRABRIGHT">ULTRABRIGHT</option>
+                                                <option value="WARHAMMER">WARHAMMER</option>
+                                                <option value="VIKING_HAMMER">VIKING HAMMER</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Top weapons 1-Empty Container -->
+                        <div class="dispNone" id="topWepContainer">
+                            <!--Top Weapons 1-2 -->
+                            <div class="dispFlex">
+                                <!--Top weapon 1-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Top Weapon 1:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img id="topWep1ImgId" class="imgPrime" src="img/TopWepons/Nothing.png" alt="" />
+                                        </div>
+                                        <div>
+                                            <select onchange="executeAllFunctions()" class="sel" name="" id="topWep1SelectDd">
+                                                <option value="Nothing">Nothing</option>
+                                                <option value="DELERIUM_L">DELERIUM(L)</option>
+                                                <option value="DESERT_FURY_L">DESERT FURY(L)</option>
+                                                <option value="DESERT_SNAKE_L">DESERT SNAKE(L)</option>
+                                                <option value="DESOLATION">DESOLATION </option>
+                                                <option value="FLAMING_SCOPE_L">FLAMING SCOPE(L)</option>
+                                                <option value="FALCON">FALCON</option>
+                                                <option value="GRIM_COBRA">GRIM COBRA</option>
+                                                <option value="HYSTERIA">HYSTERIA</option>
+                                                <option value="LIGHTNING_SCOPE">LIGHTNING SCOPE</option>
+                                                <option value="IRON_FRENZY_L">IRON FRENZY(L)</option>
+                                                <option value="MIGHTY_CANNON_L">MIGHTY CANNON(L)</option>
+                                                <option value="NIGHT_EAGLE">NIGHT EAGLE</option>
+                                                <option value="RECKLESS_BEAM">RECKLESS BEAM</option>
+                                                <option value="SAVAGERY">SAVAGERY</option>
+                                                <option value="SPARTAN_CARNAGEL">SPARTAN CARNAGE(L)</option>
+                                                <option value="SPINEFALL_L">SPINEFALL(L)</option>
+                                                <option value="SUPREME_CANNON">SUPREME CANNON</option>
+                                                <option value="VALIANT_SNIPER_L">VALIANT SNIPER(L)</option>
+                                                <option value="VANDAL_RAGE">VANDAL RAGE</option>
+                                                <option value="BURNING_SHOWER">BURNING SHOWER</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Top weapon 2-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Top Weapon 2:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img id="topWep2ImgId" class="imgPrime" src="img/TopWepons/Nothing_R.png"
+                                                alt="" />
+                                        </div>
+                                        <div>
+                                            <select onchange="executeAllFunctions()" class="sel" name="" id="topWep2SelectDd">
+                                                <option value="Nothing_R">Nothing</option>
+                                                <option value="DELERIUM_L">DELERIUM(L)</option>
+                                                <option value="DESERT_FURY_L">DESERT FURY(L)</option>
+                                                <option value="DESERT_SNAKE_L">DESERT SNAKE(L)</option>
+                                                <option value="DESOLATION">DESOLATION </option>
+                                                <option value="FLAMING_SCOPE_L">FLAMING SCOPE(L)</option>
+                                                <option value="FALCON">FALCON</option>
+                                                <option value="GRIM_COBRA">GRIM COBRA</option>
+                                                <option value="HYSTERIA">HYSTERIA</option>
+                                                <option value="LIGHTNING_SCOPE">LIGHTNING SCOPE</option>
+                                                <option value="IRON_FRENZY_L">IRON FRENZY(L)</option>
+                                                <option value="MIGHTY_CANNON_L">MIGHTY CANNON(L)</option>
+                                                <option value="NIGHT_EAGLE">NIGHT EAGLE</option>
+                                                <option value="RECKLESS_BEAM">RECKLESS BEAM</option>
+                                                <option value="SAVAGERY">SAVAGERY</option>
+                                                <option value="SPARTAN_CARNAGEL">SPARTAN CARNAGE(L)</option>
+                                                <option value="SPINEFALL_L">SPINEFALL(L)</option>
+                                                <option value="SUPREME_CANNON">SUPREME CANNON</option>
+                                                <option value="VALIANT_SNIPER_L">VALIANT SNIPER(L)</option>
+                                                <option value="VANDAL_RAGE">VANDAL RAGE</option>
+                                                <option value="BURNING_SHOWER">BURNING SHOWER</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Top Weapons 3-4 Empty-->
+                            <div class="emptyContainer">
+                            </div>
+                        </div>
+                        <!--Utilyties 1-6 -->
+                        <div class="dispNone" id="utilytiesContainer">
+                            <!--Utilyties 1-4 -->
+                            <div class="dispFlex">
+                                <!--Teleport-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Teleport:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img id="teleportImgId" class="imgPrime" src="img/SpecialItems/NothingTeleport.png"
+                                                alt="" />
+                                        </div>
+                                        <div>
+                                            <select onchange="executeAllFunctions()" class="sel" name="" id="teleportSelectDd">
+                                                <option value="NothingTeleport">Nothing</option>
+                                                <option value="ADVANCED_TELEPORTER">ADVANCED TELEPORTER</option>
+                                                <option value="DOUBLE_TELEPORT">DOUBLE TELEPORT</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Drone-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Drone:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img id="droneImgId" class="imgPrime" src="img/SpecialItems/NothingDrone.png"
+                                                alt="" />
+                                        </div>
+                                        <div>
+                                            <select onchange="executeAllFunctions()" class="sel" name="" id="droneSelectDd">
+                                                <option value="Nothing">Nothing</option>
+                                                <option value="ANGUISH">ANGUISH</option>
+                                                <option value="BACKSTABBER">BACKSTABBER</option>
+                                                <option value="CLASH">CLASH</option>
+                                                <option value="DUSTMAKER">DUSTMAKER</option>
+                                                <option value="FACE_SHOCKER">FACE SHOCKER</option>
+                                                <option value="HEAT_POINT">HEAT POINT</option>
+                                                <option value="FLAMEWAVE">FLAMEWAVE</option>
+                                                <option value="GREEDY">GREEDY</option>
+                                                <option value="HURLBAT">HURLBAT</option>
+                                                <option value="MURMUR">MURMUR</option>
+                                                <option value="NEMO">NEMO</option>
+                                                <option value="SHOCKWAVE">SHOCKWAVE</option>
+                                                <option value="SNACK">SNACK</option>s
+                                                <option value="SWOOP">SWOOP</option>
+                                                <option value="TORMENT">TORMENT</option>
+                                                <option value="VOID">VOID</option>
+                                                <option value="WINDFORGE">WINDFORGE</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Charge-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Charge:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img id="chargeImgId" class="imgPrime" src="img/SpecialItems/NothingCharge.png"
+                                                alt="" />
+                                        </div>
+                                        <div>
+                                            <select onchange="executeAllFunctions()" class="sel" name="" id="chargeSelectDd">
+                                                <option value="NothingCharge">Nothing</option>
+                                                <option value="CHARGE_ENGINE">CHARGE ENGINE</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Special-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Special:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img class="imgPrime" src="img/SpecialItems/NothingStar.png" alt="" />
+                                        </div>
+                                        <div>
+                                            <select class="sel" name="" id="">
+                                                <option value="Nothing">Nothing</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Utilyties 5-6 -->
+                            <div class="dispFlex">
+                                <!--Shield-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Shield:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img class="imgPrime" src="img/SpecialItems/NothingIDK.png" alt="" />
+                                        </div>
+                                        <div>
+                                            <select class="sel" name="" id="">
+                                                <option value="Nothing">Nothing</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Hook-->
+                                <div class="txtAndMargin">
+                                    <div class="spanDiv">
+                                        <span class="dispNoneSpan">Select Your &nbsp</span>
+                                        <span>Hook:</span>
+                                    </div>
+                                    <div class="imgAndDd">
+                                        <div>
+                                            <img id="hookImgId" class="imgPrime" src="img/SpecialItems/NothingHook.png"
+                                                alt="" />
+                                        </div>
+                                        <div>
+                                            <select onchange="executeAllFunctions()" class="sel" name="" id="hookSelectDd">
+                                                <option value="NothingHook">Nothing</option>
+                                                <option value="FLAMING_GRAPPLING_HOOK_L">FLAMING GRAPPLING HOOK(L)</option>
+                                                <option value="PLATINUM_GRAPPLING_HOOK_L">PLATINUM GRAPPLING HOOK(L)</option>
+                                                <option value="SHOCKING_GRAPPLING_HOOK_L">SHOCKING GRAPPLING HOOK(L)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Arena Stats-->
+                        <div class="ArenaContainer">
+                            <!--Heat Stats-->
+                            <div class="textCenterAndM2">
+                                <div>
+                                    <img title="Arena bonus for heat capacity" class="imgArena" src="img/arena/heat_capacity.png"
+                                        alt="">
+                                </div>
+                                <select onchange="executeAllFunctions()" id="ArenaHeatSelectDd" onchange="changeArmourStats()"
+                                    class="selectArenaProcent">
+                                    <option value="procent0">0%</option>
+                                    <option value="procent1">1%</option>
+                                    <option value="procent3">3%</option>
+                                    <option value="procent5">5%</option>
+                                    <option value="procent7">7%</option>
+                                    <option value="procent9">9%</option>
+                                    <option value="procent11">11%</option>
+                                    <option value="procent13">13%</option>
+                                    <option value="procent15">15%</option>
+                                    <option value="procent17">17%</option>
+                                    <option value="procent20">20%</option>
+                                </select>
+                            </div>
+                            <!--Cooling Stats-->
+                            <div class="textCenterAndM2">
+                                <div>
+                                    <img title="Arena bonus for cooling" class="imgArena" src="img/arena/cooling.png"
+                                        alt="">
+                                </div>
+                                <select id="ArenaCoolingSelectDd" onchange="executeAllFunctions()" class="selectArenaProcent">
+                                    <option value="procent0">0%</option>
+                                    <option value="procent1">1%</option>
+                                    <option value="procent3">3%</option>
+                                    <option value="procent5">5%</option>
+                                    <option value="procent7">7%</option>
+                                    <option value="procent9">9%</option>
+                                    <option value="procent11">11%</option>
+                                    <option value="procent13">13%</option>
+                                    <option value="procent15">15%</option>
+                                    <option value="procent17">17%</option>
+                                    <option value="procent20">20%</option>
+                                </select>
+                            </div>
+                            <!--Energy Stats-->
+                            <div class="textCenterAndM2">
+                                <div>
+                                    <img title="Arena bonus for energy capacity" class="imgArena" src="img/arena/energy_capacity.png"
+                                        alt="">
+                                </div>
+                                <select id="ArenaEnergySelectDd" onchange="executeAllFunctions()" class="selectArenaProcent">
+                                    <option value="procent0">0%</option>
+                                    <option value="procent1">1%</option>
+                                    <option value="procent3">3%</option>
+                                    <option value="procent5">5%</option>
+                                    <option value="procent7">7%</option>
+                                    <option value="procent9">9%</option>
+                                    <option value="procent11">11%</option>
+                                    <option value="procent13">13%</option>
+                                    <option value="procent15">15%</option>
+                                    <option value="procent17">17%</option>
+                                    <option value="procent20">20%</option>
+                                </select>
+                            </div>
+                            <!--Energy Regen Stats-->
+                            <div class="textCenterAndM2">
+                                <div>
+                                    <img title="Arena bonus for energy regeneration" class="imgArena" src="img/arena/energy_regen.png"
+                                        alt="">
+                                </div>
+                                <select id="ArenaEngReSelectDd" onchange="executeAllFunctions()" class="selectArenaProcent">
+                                    <option value="procent0">0%</option>
+                                    <option value="procent1">1%</option>
+                                    <option value="procent3">3%</option>
+                                    <option value="procent5">5%</option>
+                                    <option value="procent7">7%</option>
+                                    <option value="procent9">9%</option>
+                                    <option value="procent11">11%</option>
+                                    <option value="procent13">13%</option>
+                                    <option value="procent15">15%</option>
+                                    <option value="procent17">17%</option>
+                                    <option value="procent20">20%</option>
+                                </select>
+                            </div>
+                            <!--Explosion Resist Stats-->
+                            <div class="textCenterAndM2">
+                                <div>
+                                    <img title="Arena bonus for explosion resist" class="imgArena" src="img/arena/ExplosionResist.png"
+                                        alt="">
+                                </div>
+                                <select id="ArenaExpReSelectDd" onchange="executeAllFunctions()" class="selectArenaProcent">
+                                    <option value="procent0">0%</option>
+                                    <option value="procent3">3%</option>
+                                    <option value="procent6">6%</option>
+                                    <option value="procent10">10%</option>
+                                    <option value="procent14">14%</option>
+                                    <option value="procent18">18%</option>
+                                    <option value="procent22">22%</option>
+                                    <option value="procent26">26%</option>
+                                    <option value="procent30">30%</option>
+                                    <option value="procent34">34%</option>
+                                    <option value="procent40">40%</option>
+                                </select>
+                            </div>
+                            <!--Electric Resist Stats-->
+                            <div class="textCenterAndM2">
+                                <div>
+                                    <img title="Arena bonus for electric resist" class="imgArena" src="img/arena/ElectricResist.png"
+                                        alt="">
+                                </div>
+                                <select id="ArenaEleReSelectDd" onchange="executeAllFunctions()" class="selectArenaProcent">
+                                    <option value="procent0">0%</option>
+                                    <option value="procent3">3%</option>
+                                    <option value="procent6">6%</option>
+                                    <option value="procent10">10%</option>
+                                    <option value="procent14">14%</option>
+                                    <option value="procent18">18%</option>
+                                    <option value="procent22">22%</option>
+                                    <option value="procent26">26%</option>
+                                    <option value="procent30">30%</option>
+                                    <option value="procent34">34%</option>
+                                    <option value="procent40">40%</option>
+                                </select>
+                            </div>
+                            <!--Psyhical Resist Stats-->
+                            <div class="textCenterAndM2">
+                                <div>
+                                    <img title="Arena bonus for psyhic resist" class="imgArena" src="img/arena/PsysResist.png"
+                                        alt="">
+                                </div>
+                                <select id="ArenaPysReSelectDd" onchange="executeAllFunctions()" class="selectArenaProcent">
+                                    <option value="procent0">0%</option>
+                                    <option value="procent3">3%</option>
+                                    <option value="procent6">6%</option>
+                                    <option value="procent10">10%</option>
+                                    <option value="procent14">14%</option>
+                                    <option value="procent18">18%</option>
+                                    <option value="procent22">22%</option>
+                                    <option value="procent26">26%</option>
+                                    <option value="procent30">30%</option>
+                                    <option value="procent34">34%</option>
+                                    <option value="procent40">40%</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--Arena Weapons Stats-->
+                        <div class="arenaWeponStats">
+                            <div class="textCenterAndM2">
+                                <div>
+                                    <img title="Arena bonus for energy regeneration" class="imgArena" src="img/arena/energy_regen.png"
+                                        alt="">
+                                </div>
+                                <select disabled id="" onchange="executeAllFunctions()" class="selectArenaProcent">
+                                    <option value="procent0">0%</option>
+                                    <option value="procent1">1%</option>
+                                    <option value="procent3">3%</option>
+                                    <option value="procent5">5%</option>
+                                    <option value="procent7">7%</option>
+                                    <option value="procent9">9%</option>
+                                    <option value="procent11">11%</option>
+                                    <option value="procent13">13%</option>
+                                    <option value="procent15">15%</option>
+                                    <option value="procent17">17%</option>
+                                    <option value="procent20">20%</option>
+                                </select>
+                            </div>
+                            <!-- Heat Damage Arena-->
+
+                            <div class="textCenterAndM2">
+                                <div>
+                                    <img title="Arena bonus for heat damage" class="imgArena" src="img/arena/heat_damage.png"
+                                        alt="">
+                                </div>
+                                <select disabled id="" onchange="" class="selectArenaProcent">
+                                    <option value="procent0">0%</option>
+                                    <option value="procent1">1%</option>
+                                    <option value="procent3">3%</option>
+                                    <option value="procent5">5%</option>
+                                    <option value="procent7">7%</option>
+                                    <option value="procent9">9%</option>
+                                    <option value="procent11">11%</option>
+                                    <option value="procent13">13%</option>
+                                    <option value="procent15">15%</option>
+                                    <option value="procent17">17%</option>
+                                    <option value="procent20">20%</option>
+                                </select>
+                            </div>
+                            <!-- Explosive Damage Arena-->
+                            <div class="textCenterAndM2">
+                                <div>
+                                    <img title="Arena bonus for explosion damage" class="imgArena" src="img/arena/explosive_damage.png"
+                                        alt="">
+                                </div>
+                                <select id="selectArenaExpDmgId" onchange="executeAllFunctions()" class="selectArenaProcent">
+                                    <option value="procent0">0%</option>
+                                    <option value="procent1">1%</option>
+                                    <option value="procent3">3%</option>
+                                    <option value="procent5">5%</option>
+                                    <option value="procent7">7%</option>
+                                    <option value="procent9">9%</option>
+                                    <option value="procent11">11%</option>
+                                    <option value="procent13">13%</option>
+                                    <option value="procent15">15%</option>
+                                    <option value="procent17">17%</option>
+                                    <option value="procent20">20%</option>
+                                </select>
+                            </div>
+                            <!-- Electric Damage Arena-->
+                            <div class="textCenterAndM2">
+                                <div>
+                                    <img title="Arena bonus for electric damage" class="imgArena" src="img/arena/electric_damage.png"
+                                        alt="">
+                                </div>
+                                <select  id="selectArenaEleDmgId" onchange="executeAllFunctions()" class="selectArenaProcent">
+                                    <option value="procent0">0%</option>
+                                    <option value="procent1">1%</option>
+                                    <option value="procent3">3%</option>
+                                    <option value="procent5">5%</option>
+                                    <option value="procent7">7%</option>
+                                    <option value="procent9">9%</option>
+                                    <option value="procent11">11%</option>
+                                    <option value="procent13">13%</option>
+                                    <option value="procent15">15%</option>
+                                    <option value="procent17">17%</option>
+                                    <option value="procent20">20%</option>
+                                </select>
+                            </div>
+                            <!-- Psyhic Damage Arena-->
+                            <div class="textCenterAndM2">
+                                <div>
+                                    <img title="Arena bonus for psyhic damage" class="imgArena" src="img/arena/physical_damage.png"
+                                        alt="">
+                                </div>
+                                <select  id="selectArenaPysDmgId" onchange="executeAllFunctions()" class="selectArenaProcent">
+                                    <option value="procent0">0%</option>
+                                    <option value="procent1">1%</option>
+                                    <option value="procent3">3%</option>
+                                    <option value="procent5">5%</option>
+                                    <option value="procent7">7%</option>
+                                    <option value="procent9">9%</option>
+                                    <option value="procent11">11%</option>
+                                    <option value="procent13">13%</option>
+                                    <option value="procent15">15%</option>
+                                    <option value="procent17">17%</option>
+                                    <option value="procent20">20%</option>
+                                </select>
+                            </div>
+                            <!-- Total Hp Arena-->
+                            <div class="textCenterAndM2">
+                                <div>
+                                    <img title="Arena bonus for total health" class="imgArena" src="img/arena/total_hp.png"
+                                        alt="">
+                                </div>
+                                <select id="arenaTotalHpSelectDd" onchange="executeAllFunctions()" class="selectArenaProcent">
+                                    <option value="level0">0</option>
+                                    <option value="level1">20</option>
+                                    <option value="level2">40</option>
+                                    <option value="level3">60</option>
+                                    <option value="level4">90</option>
+                                    <option value="level5">120</option>
+                                    <option value="level6">150</option>
+                                    <option value="level7">180</option>
+                                    <option value="level8">220</option>
+                                    <option value="level9">260</option>
+                                    <option value="level10">300</option>
+                                </select>
+                            </div>
+                            <!--Arena weapons end-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Here-->
+            <div id="screenInform">
+                <div class="screenDisplay" id="screenDisplayId">
+                    <div class="spanLoadDiv">
+                        <span class="dispNone" id="attention2">Atention if you start a new simulation you will erase
+                            your last save !</span>
+                        <span class="dispNone greenColor" id="welcome2">Welcome press on
+                            <b>start new mech</b> and you will start the simulation. </span>
+                    </div>
+                    <div class="btnDiv" id="btnDiv">
+                        <input type="button" class="btnOne dispNone" onclick="loadWhatYouHaveSaveAfterLoadingScreen()"
+                            name="" value="Load" id="loadBtn2" />
+                        <input type="button" class="btnOne dispNone" onclick="StartNewByMakeYourselectOption(0)" name=""
+                            value="Start new mech" id="startNew2" />
+                    </div>
+                </div>
+                <img class="imgUp" id="imgUpId" src="img/loading/aaa.png" alt="" />
+                <img class="imgDown" id="imgDownId" src="img/loading/bbb.png" alt="">
+            </div>
+            <!--This is the end of the superMech container-->
+        </div>
+    </div>
+
+    <script src="js/ChangeMenu.js"></script>
+    <script src="js/ImagesAndOptions.js"></script>
+    <script src="js/stats.js"></script>
+    <script src="js/loadingBarandScreen.js"></script>
+    <script src="js/saveAndLoad.js"></script>
+    <script src="js/allScriptsInOneFile.js"></script>
+
+</body>
+
+</html>
