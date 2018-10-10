@@ -12,10 +12,12 @@ function attackWithRocketUpWeapon(weapon, divBulletId){
 }
 function RocketUp(divBulletId){
     var divBulletId = document.getElementById(divBulletId);
-
+   
+    divBulletId.style.top = "-28px";
+    divBulletId.style.marginLeft = "-28px";
+    
     divBulletId.style.display = "block";
     divBulletId.style.transition = "1s";
-    divBulletId.style.top = "0px";
     divBulletId.style.background = "url('img/fight/attackType/rocketUp.png')";
     divBulletId.style.backgroundSize = "contain";
     divBulletId.style.backgroundRepeat = "no-repeat";

@@ -24,7 +24,7 @@ var attacksCooldowns = {
     bigBulletFromTop: 1000,
     topBomb: 2500,
     rocketUp: 2000,
-    multipleRockets: 2200,
+    multipleRockets: 2500,
 };
 
 function getCoolDown(attackType) {
@@ -32,7 +32,7 @@ function getCoolDown(attackType) {
 }
 function enableBtn() {
 
-
+    
     $(".btn").removeAttr("disabled");
 
     for (i = 0; i < buttons.length; i++) {
@@ -174,9 +174,11 @@ function startTurn() {
 }
 function checkIfYouHaveEnoughEnergyToAttack(weapon, btnId) {
     var btnId = document.getElementById(btnId);
-    if (items[weapon].energyCost > parseInt(spanEnergyFightCurrent.innerText)) {
-        btnId.disabled = true;
-    } else {
-        btnId.disabled = false;
+    if (btnId != null){
+        if (items[weapon].energyCost > parseInt(spanEnergyFightCurrent.innerText)) {
+            btnId.disabled = true;
+        } else {
+            btnId.disabled = false;
+        }
     }
 }

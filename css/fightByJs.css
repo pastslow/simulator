@@ -633,8 +633,10 @@ body{
 .containerBulletSecondClass{
     width: 400px;
     height: 144px;
-    top:-244px;
+    top: 95px;
     overflow: hidden;
+    left: 318px;
+    position: absolute;
 }
 .weaponStatsContainer{
     max-width: 560px;

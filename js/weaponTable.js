@@ -42,6 +42,10 @@ var arenaDmgByProcent = document.getElementById("arenaDmgByProcent");
 var spansIndicator = document.getElementsByClassName("colInd");
 var resEnemyIndImg = document.getElementById("resEnemyIndImg");
 var resIndicator = document.getElementById("resIndicator");
+var arenaHeatDmg = localStorage.getItem("ArenaHeatDamageProcent");
+var arenaEnergyDmg = localStorage.getItem("ArenaEnergyDamageProcent");
+
+
 //player 1
 
 var heatCapacity;
@@ -217,8 +221,11 @@ function changeStatsFight(weapon) {
     totalHeatDamageSpan.innerText = (items[weapon].totalHeatDamage);
     totalEnergyDamageSpan.innerText = (items[weapon].totalEnergyDamage);
 
-    HeatDamageSpan.innerText = (items[weapon].heatDamage);
-    EnergyDamageSpan.innerText = (items[weapon].energyDamage);
+    HeatDamageSpan.innerText = (items[weapon].heatDamage) + 
+    Math.round((items[weapon].heatDamage)* parseInt(arenaStats[arenaHeatDmg])/100);
+    
+    EnergyDamageSpan.innerText = (items[weapon].energyDamage) + 
+    Math.round((items[weapon].energyDamage)* parseInt(arenaStats[arenaEnergyDmg])/100);;
 
 
     pysResSpan.innerText = (items[weapon].psyResistDrain);

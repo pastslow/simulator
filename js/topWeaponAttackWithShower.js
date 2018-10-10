@@ -24,8 +24,17 @@ function weaponShower(divBulletId) {
     divBulletId.style.background = "url('img/fight/attackType/rocketUp.png')";
     divBulletId.style.backgroundSize = "contain";
     divBulletId.style.backgroundRepeat = "no-repeat";
+    bulletsContainer.style.top = "100px";
+    bulletsContainer.style.left = "95px";
     divBulletId.style.width = "20px";
     divBulletId.style.height = "28px";
+    
+    if(divBulletId.id == "topDivBulletId2"){
+    bulletsContainer.style.zIndex = -1;
+    }else{
+    bulletsContainer.style.zIndex = 1;
+
+    }
     setTimeout(function () {
         playMultipleRockets();
         divBulletId.style.top = "50px";
@@ -53,6 +62,10 @@ function weaponShower(divBulletId) {
 
     setTimeout(function(){
         $("#bulletsContainer").removeClass("containerBulletSecondClass");
+        bulletsContainer.style.top = "-217px";
+        bulletsContainer.style.left = "";
+    bulletsContainer.style.zIndex = 1;
+
     },2000);
 
     setTimeout(function(){$("#bulletsContainer").empty()},2000);

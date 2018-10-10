@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/550width.css">
     <link rel="stylesheet" href="css/900width.css">
+    <script src="https://code.createjs.com/1.0.0/soundjs.min.js"></script>
     <title>SuperMech Simulator</title>
 </head>
 
@@ -68,11 +69,11 @@
                 <div class="disp900Flex">
                     <!--Change menu using top bar-->
                     <div class="dispFlex lineH dispBlock">
-                        <div class="ImgLeft0" id="DmgTestBackground">
-                            <a href="fightByJavaScript.html"><img onclick="saveStatus()" id="dmgTestImgId" class="topBarImg"
+                        <div class="ImgLeft" id="DmgTestBackground">
+                            <a href="arena.html"><img onclick="saveStatus()" id="dmgTestImgId" class="topBarImg"
                                     title="Damage Test" src="img/Hunt.png" alt="" /></a>
                         </div>
-                        <div class="ImgLeft1" id="SideWeponsBackground">
+                        <div class="ImgLeft" id="SideWeponsBackground">
                             <img onclick="getToSideWepMenu()" id="sideWepImgId" class="topBarImg" title="Side Wepons"
                                 src="img/Icons/Sidewepon.png" alt="">
                         </div>
@@ -1140,7 +1141,7 @@
                                     <img title="Arena bonus for energy regeneration" class="imgArena" src="img/arena/energy_regen.png"
                                         alt="">
                                 </div>
-                                <select disabled id="" onchange="executeAllFunctions()" class="selectArenaProcent">
+                                <select  id="energyDamageArena" onchange="executeAllFunctions()" class="selectArenaProcent">
                                     <option value="procent0">0%</option>
                                     <option value="procent1">1%</option>
                                     <option value="procent3">3%</option>
@@ -1161,7 +1162,7 @@
                                     <img title="Arena bonus for heat damage" class="imgArena" src="img/arena/heat_damage.png"
                                         alt="">
                                 </div>
-                                <select disabled id="" onchange="" class="selectArenaProcent">
+                                <select  id="heatDamageArena" onchange="executeAllFunctions()" class="selectArenaProcent">
                                     <option value="procent0">0%</option>
                                     <option value="procent1">1%</option>
                                     <option value="procent3">3%</option>

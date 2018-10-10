@@ -31,7 +31,7 @@ function topBomb(weapon, divBulletId) {
     }
     if(armour == "BRUTALITY") {
         divBulletId.style.marginLeft = "15px";
-        divBulletId.style.top = "8px";
+        divBulletId.style.top = "-4px";
     }
     if(armour == "WINDIGO"){
         divBulletId.style.top = "5px";

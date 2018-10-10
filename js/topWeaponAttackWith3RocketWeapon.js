@@ -31,6 +31,7 @@ function weapon3Rockets(divBulletId) {
     divBulletId.style.backgroundRepeat = "no-repeat";
     divBulletId.style.width = "20px";
     divBulletId.style.height = "28px";
+    bulletsContainer.style.left = "148px";
     setTimeout(function () {
         playMultipleRockets();
         divBulletId.style.top = "150px";
@@ -56,9 +57,11 @@ function weapon3Rockets(divBulletId) {
     setTimeout(playerGotHitByBomb, 800);
     setTimeout(playerGetToNormalAfterBomb, 1800);
 
-    setTimeout(function(){
-        $("#bulletsContainer").removeClass("containerBulletSecondClass");
+     setTimeout(function(){
+         $("#bulletsContainer").removeClass("containerBulletSecondClass");
+    bulletsContainer.style.left = "";
+
     },2000);
 
-    setTimeout(function(){$("#bulletsContainer").empty()},2000);
+     setTimeout(function(){$("#bulletsContainer").empty()},2000);
 }

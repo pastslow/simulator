@@ -21,8 +21,24 @@ function attackWithSniperWeapon(weapon, divBulletId) {
 function weaponSniper(weapon, divBulletId) {
     changeBackgroundSniper(weapon, divBulletId);
     var divBulletId = document.getElementById(divBulletId);
+    if(armour == "ARCHIMOND_L" || armour == "AVENGER" || armour == "GRIMREAPER" || armour == "INTERCEPTOR" 
+    || armour == "NAGA" || armour == "NIGHTMARE" || armour == "SITH" || armour == "ZARKARES"){
+        divBulletId.style.top = "-7px";
+        divBulletId.style.marginLeft = "18px";
+    }
+    if(armour == "BRUTALITY") {
+        divBulletId.style.top = "0px";
+        divBulletId.style.marginLeft = "19px";
+    }
+    if(armour == "WINDIGO"){
+        divBulletId.style.top = "8px";
+        divBulletId.style.marginLeft = "28px";
+    }
+    if(armour == "Lightning_Platinum_Vest" || armour == "Molten_platinum_vest"){
+        divBulletId.style.top = "-7px";
+        divBulletId.style.marginLeft = "26px";
+    }
     divBulletId.style.display = "block";
-    divBulletId.style.top = "-10px";
     divBulletId.style.transition = "0.3s";
     divBulletId.style.backgroundSize = "contain";
     divBulletId.style.backgroundRepeat = "no-repeat";

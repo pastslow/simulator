@@ -104,8 +104,8 @@ function changeImageArmour() {
 
     if (armour == "BRUTALITY") {
         armourClassDiv.style.left = "8px";
-        topWep1BreakId.style.top = "27px";
-        topWep2BreakId.style.top = "28px";
+        topWep1BreakId.style.top = "14px";
+        topWep2BreakId.style.top = "16px";
     }
 
     if (armour == "GRIMREAPER") {

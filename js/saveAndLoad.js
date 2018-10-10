@@ -1,3 +1,7 @@
+createjs.Sound.registerSound("audio/panel.mp3", "panel")
+function playPanel(){
+    createjs.Sound.play("panel");
+}
 var armourSelectDd = document.getElementById("armourSelectDd");
 var legsSelectDd = document.getElementById("legsSelectDd");
 var module1SelectDd = document.getElementById("module1SelectDd");
@@ -29,8 +33,8 @@ var arenaTotalHpSelectDd = document.getElementById("arenaTotalHpSelectDd");
 var selectArenaExpDmgId = document.getElementById("selectArenaExpDmgId");
 var selectArenaEleDmgId = document.getElementById("selectArenaEleDmgId");
 var selectArenaPysDmgId = document.getElementById("selectArenaPysDmgId");
-
-
+var energyDamageArena = document.getElementById("energyDamageArena");
+var heatDamageArena = document.getElementById("heatDamageArena");
 
 function saveArmourValue() {
     localStorage.setItem("armour", armourSelectDd.value);
@@ -64,7 +68,8 @@ function saveArmourValue() {
     localStorage.setItem("ArenaExplosionDamage", selectArenaExpDmgId.value);
     localStorage.setItem("ArenaElectricDamage", selectArenaEleDmgId.value);
     localStorage.setItem("ArenaPsyhicalDamage", selectArenaPysDmgId.value);
-
+    localStorage.setItem("ArenaEnergyDamageProcent", energyDamageArena.value);
+    localStorage.setItem("ArenaHeatDamageProcent", heatDamageArena.value);
 }
 function loadWhatYouHaveSave() {
     armourSelectDd.value = localStorage.getItem("armour");
@@ -98,9 +103,12 @@ function loadWhatYouHaveSave() {
     selectArenaExpDmgId.value = localStorage.getItem("ArenaExplosionDamage");
     selectArenaEleDmgId.value = localStorage.getItem("ArenaElectricDamage");
     selectArenaPysDmgId.value = localStorage.getItem("ArenaPsyhicalDamage");
+    energyDamageArena.value = localStorage.getItem("ArenaEnergyDamageProcent");
+    heatDamageArena.value = localStorage.getItem("ArenaHeatDamageProcent");
 
     changeImage();
     changeStats();
+    playPanel();
     onModuleItemChange(event);
 
     var loadBar = document.getElementById("loadBar");
@@ -154,11 +162,14 @@ function selectOption(index) {
     document.getElementById("selectArenaExpDmgId").options.selectedIndex = index;
     document.getElementById("selectArenaEleDmgId").options.selectedIndex = index;
     document.getElementById("selectArenaPysDmgId").options.selectedIndex = index;
+    document.getElementById("energyDamageArena").options.selectedIndex = index;
+    document.getElementById("heatDamageArena").options.selectedIndex = index;
 
 
     saveArmourValue();
     changeImage();
     changeStats();
+    playPanel();
     var loadBar = document.getElementById("loadBar");
     loadBar.style.display = "none";
 
@@ -207,9 +218,12 @@ function loadWhatYouHaveSaveAfterLoadingScreen() {
     selectArenaExpDmgId.value = localStorage.getItem("ArenaExplosionDamage");
     selectArenaEleDmgId.value = localStorage.getItem("ArenaElectricDamage");
     selectArenaPysDmgId.value = localStorage.getItem("ArenaPsyhicalDamage");
+    energyDamageArena.value = localStorage.getItem("ArenaEnergyDamageProcent");
+    heatDamageArena.value = localStorage.getItem("ArenaHeatDamageProcent");
 
     changeImage();
     changeStats();
+    playPanel();
     onModuleItemChange(event);
 
     var loadBar = document.getElementById("loadBar");
@@ -260,11 +274,13 @@ function StartNewByMakeYourselectOption(index) {
     document.getElementById("selectArenaExpDmgId").options.selectedIndex = index;
     document.getElementById("selectArenaEleDmgId").options.selectedIndex = index;
     document.getElementById("selectArenaPysDmgId").options.selectedIndex = index;
-
+    document.getElementById("energyDamageArena").options.selectedIndex = index;
+    document.getElementById("heatDamageArena").options.selectedIndex = index;
 
     saveArmourValue()
     changeImage();
     changeStats();
+    playPanel();
     var loadBar = document.getElementById("loadBar");
     loadBar.style.display = "none";
 
@@ -292,11 +308,12 @@ var spanPysRes = document.getElementById("spanPysRes");
 
 function saveStatus() {
     localStorage.setItem("Hp", spanHp.value);
-    localStorage.setItem("Heat", spanHeat.value)
+    localStorage.setItem("Heat", spanHeat.value);
     localStorage.setItem("Cooling", spanCooling.value);
-    localStorage.setItem("Energy", spanEnergy.value)
+    localStorage.setItem("Energy", spanEnergy.value);
     localStorage.setItem("EngRegen", spanEngRegen.value);
-    localStorage.setItem("ExpRes", spanExpRes.value)
+    localStorage.setItem("ExpRes", spanExpRes.value);
     localStorage.setItem("EleRes", spanEleRes.value);
-    localStorage.setItem("PysRes", spanPysRes.value)
+    localStorage.setItem("PysRes", spanPysRes.value);
+    localStorage.setItem("weight", spanWeight.value);
 }

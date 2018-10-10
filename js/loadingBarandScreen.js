@@ -1,10 +1,11 @@
+
 // execute loading bar when you start the webpage
 window.onload = loading;
 
 function loading(){
     loadingBar();
     loadingScreen();
-
+    
     setTimeout(appearMenu, 1300);
 }
 

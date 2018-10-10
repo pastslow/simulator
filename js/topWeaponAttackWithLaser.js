@@ -21,7 +21,7 @@ function topLaserWeapon(weapon, divBulletId){
         divBulletId.style.top = "-8px";
     }
     if(armour == "BRUTALITY") {
-        divBulletId.style.top = "10px";
+        divBulletId.style.top = "1px";
     }
     if(armour == "WINDIGO"){
         divBulletId.style.top = "5px";
