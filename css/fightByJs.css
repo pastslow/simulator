@@ -365,6 +365,9 @@ body{
     position: relative;
     display: flex;
     z-index: 1;
+    background: url("btnBackground.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .unpressBtnDiv{
     background: url("frameUnpressedBtn.png");
@@ -715,4 +718,28 @@ body{
 }
 .colInd{
     color:white;
+}
+.phone{
+    display: none;
+}
+@keyframes rotatePhone {
+    0%   {transform: rotate(0deg)}
+    100%  {transform: rotate(90deg); background-image: url(phone2.png); }
+}
+@media only screen and (max-width:540px){
+    .fightAgainstRobot {
+        display: none;
+    }
+    .phone{
+        display: block;
+        background: url(phone.png);
+        background-size: contain;
+        max-width: 106px;
+        height: 200px;
+        background-repeat: no-repeat;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 130px;
+        animation: 2.2s rotatePhone infinite;
+    }
 }

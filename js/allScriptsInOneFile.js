@@ -6,7 +6,6 @@ function executeAllFunctions() {
   changeImage();
   // from stats.js
   changeStats();
-  //
   onModuleItemChange(event);
 }
 
@@ -48,4 +47,22 @@ function onModuleItemChange(event) {
   }
 }
 
+
+function checkIfYouHaveValuesOnLocalStorage(){
+  if(localStorage.getItem("ArenaHeatDamageProcent") == "" ){
+    localStorage.setItem("ArenaHeatDamageProcent", "procent0");
+}
+if(localStorage.getItem("ArenaEnergyDamageProcent") == "" ){
+  localStorage.setItem("ArenaEnergyDamageProcent", "procent0");
+}
+if(localStorage.getItem("ArenaExplosionDamage") == "" ){
+  localStorage.setItem("ArenaExplosionDamage", "procent0");
+}
+if(localStorage.getItem("ArenaPsyhicalDamage") == "" ){
+  localStorage.setItem("ArenaPsyhicalDamage", "procent0");
+}
+if(localStorage.getItem("ArenaElectricDamage") == "" ){
+  localStorage.setItem("ArenaElectricDamage", "procent0");
+}
+}
 console.log(getExcludesFromCurentSelect(document.getElementsByTagName("select")[0]));

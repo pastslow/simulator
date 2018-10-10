@@ -70,8 +70,8 @@
                     <!--Change menu using top bar-->
                     <div class="dispFlex lineH dispBlock">
                         <div class="ImgLeft" id="DmgTestBackground">
-                            <a href="arena.html"><img onclick="saveStatus()" id="dmgTestImgId" class="topBarImg"
-                                    title="Damage Test" src="img/Hunt.png" alt="" /></a>
+                            <a href="arena.html"><img onclick="saveStatus(), checkIfYouHaveValuesOnLocalStorage() " id="dmgTestImgId" class="topBarImg"
+                            title="Damage Test" src="img/Hunt.png" alt="" /></a>
                         </div>
                         <div class="ImgLeft" id="SideWeponsBackground">
                             <img onclick="getToSideWepMenu()" id="sideWepImgId" class="topBarImg" title="Side Wepons"
