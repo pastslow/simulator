@@ -53,5 +53,11 @@
     .displayNoneAnd{
         display: none;
     }
-   
+    .token {
+        max-width: 602px;
+    }
+
+    .hover{
+        margin-left: 34px;
+    }
 }

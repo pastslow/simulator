@@ -271,7 +271,7 @@ body{
     height: 1px;
     position: absolute;
     top: 52px;
-    left: 76px;
+    left: 83px;
     z-index: -1;
 }
 .sideWep2BreakSec{
@@ -286,7 +286,7 @@ body{
     height: 1px;
     position: absolute;
     top: 36px;
-    left: 52px;
+    left: 50px;
 }
 .sideWep3BreakSec{
     width: 90px;
@@ -300,7 +300,7 @@ body{
     height: 1px;
     position: absolute;
     top: 34px;
-    left: 76px;
+    left: 83px;
     z-index: -1;
 }
 .sideWep4BreakSec{

@@ -2006,6 +2006,46 @@ var arenaStats = {
     level9:260,
     level10:300,
 };
+
+var arenaTokens = {
+    procent0: 0,
+    procent1: 2,
+    procent3: 6,
+    procent5: 22,
+    procent7: 54,
+    procent9: 106,
+    procent11: 182,
+    procent13: 286,
+    procent15: 422,
+    procent17: 594,
+    procent20: 806,
+
+    level0:0,
+    level1:2,
+    level2:6,
+    level3:22,
+    level4:54,
+    level5:106,
+    level6:182,
+    level7:286,
+    level8:422,
+    level9:594,
+    level10:806,
+};
+
+var arenaTokens2 = {
+    procent0: 0,
+    procent3: 2,
+    procent6: 6,
+    procent10: 22,
+    procent14: 54,
+    procent18: 106,
+    procent22: 182,
+    procent26: 286,
+    procent30: 422,
+    procent34: 594,
+    procent40: 806,
+};
 var spanHp = document.getElementById("spanHp");
 var spanHeat = document.getElementById("spanHeat");
 var spanCooling = document.getElementById("spanCooling");

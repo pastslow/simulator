@@ -14,6 +14,16 @@
     <script src="https://code.createjs.com/1.0.0/soundjs.min.js"></script>
     <link rel="stylesheet" href="css/fightByJs.css">
     <link rel="icon" href="img/eye.png" sizes="16x16">
+    <!-- ========= Global site tag (gtag.js) - Google Analytics =======-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127334991-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-127334991-1');
+    </script>
+    <!--  =================== End of Google Analytics ================== -->
 
 </head>
 
@@ -25,11 +35,13 @@
                 <div class="d-flex justif-center">
                     <div>
                         <img class="imgDummy" src="img/atrib/hp.png" alt="">
-                        <input id="hpInput" class="max-width" min="1" max="99999" value="10000" type="number" name="" id="" />
+                        <input id="hpInput" class="max-width" min="1" max="99999" value="10000" type="number" name=""
+                            id="" />
                     </div>
                     <div>
                         <img class="imgDummy" src="img/atrib/heat.png" alt="">
-                        <input id="heatInput" class="max-width" min="1" max="99999" value="800" type="number" name="" id="" />
+                        <input id="heatInput" class="max-width" min="1" max="99999" value="800" type="number" name=""
+                            id="" />
                     </div>
                     <div>
                         <img class="imgDummy" src="img/atrib/energy.png" alt="">
@@ -40,7 +52,8 @@
                 <div class="d-flex justif-center">
                     <div>
                         <img class="imgDummy" src="img/atrib/cooling.png" alt="">
-                        <input id="coolingInput" class="max-width" min="1" max="99999" value="300" type="number" name="" id="" />
+                        <input id="coolingInput" class="max-width" min="1" max="99999" value="300" type="number" name=""
+                            id="" />
                     </div>
                     <div>
                         <img class="imgDummy" src="img/atrib/energy_regen.png" alt="">
@@ -49,7 +62,7 @@
                     </div>
                 </div>
                 <br />
-    
+
                 <div class="d-flex justif-center">
                     <div>
                         <img class="imgDummy" src="img/atrib/pysresist.png" alt="">
@@ -68,14 +81,14 @@
                     </div>
                 </div>
                 <br />
-    
+
             </div>
-            <input type="button" onclick="allFunction()" class="btn btn-xs btn-success" value="Fight Against Dumbie" name=""
-                id="" />
+            <input type="button" onclick="allFunction()" class="btn btn-xs btn-success" value="Fight Against Dumbie"
+                name="" id="" />
             <h2>Fight against computer</h2>
             <input type="button" disabled class="btn btn-xs btn-danger" value="Cooming Soon" name="" id="" />
         </div>
-    
+
         <div class="mainFight" id="robotCreate">
         </div>
         <div id='fight' class="fight">
@@ -124,10 +137,10 @@
                 <span id='totalDmgIndicator' class="fontBold colInd">0</span>
                 <img class='ico indicatorImg' src='img/fight/icons/explosion.png' />
             </div>
-    
+
         </div>
         <div id="weaponStatsFight" class="weaponStatsContainer">
-    
+
             <div>
                 <div title="Your Cooling">
                     <img class='ico' src='img/fight/icons/cooling.png' />
@@ -148,7 +161,7 @@
                     <span id='energyConsumptionSpan' class="fontBold colLightBlue">0</span>
                 </div>
             </div>
-    
+
             <div>
                 <div title="Weapon Damage Basic">
                     <img id='icoFight' class='ico' src='img/fight/icons/explosion.png' />
@@ -156,7 +169,7 @@
                     <span class="colWhite">-</span>
                     <span id='maxDmgExpFight' class="fontBold colWhite">0</span>
                 </div>
-    
+
                 <div title="Your Damage Between Weapon Minimum And Maximum">
                     <img id='icoFightRandomDmg' class='ico' src='img/fight/icons/explosion.png' />
                     <span id='randomDmg' class="fontBold colWhite">0</span>
@@ -167,7 +180,7 @@
                     <img id='icoFightR' class='ico' src='img/fight/icons/explosion.png' />
                 </div>
             </div>
-    
+
             <div>
                 <div title="Cooling Damage">
                     <img class='ico' src='img/fight/icons/coolingDamage.png' />
@@ -182,7 +195,7 @@
                     <span id='pysResSpan' class="fontBold colYellow">0</span>
                 </div>
             </div>
-    
+
             <div>
                 <div title="Maximum Heat Damage">
                     <img class='ico' src='img/fight/icons/totalHeatDamage.png' />
@@ -197,7 +210,7 @@
                     <span id='explosionRespan' class="fontBold colRed">0</span>
                 </div>
             </div>
-    
+
             <div>
                 <div title="Heat Damage">
                     <img class='ico' src='img/fight/icons/heatDamage.png' />
@@ -212,7 +225,7 @@
                     <span id='electricResSpan' class="fontBold colLightBlue">0</span>
                 </div>
             </div>
-    
+
             <div>
                 <div title="Cooling of enemy">
                     <img class='ico' src='img/fight/icons/cooling.png' />
@@ -226,7 +239,7 @@
         </div>
     </div>
     <div class="phone">
-        
+
     </div>
     <script src="js/stats.js"></script>
     <script src="js/createTopPannels.js"></script>

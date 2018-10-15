@@ -2,15 +2,43 @@
 <html lang="en">
 
 <head>
+    <title>SuperMech Simulator</title>
+    <!-- Facebook Meta Description it will be displayed in facebook only -->
+    <meta property="og:title" content="Test your robot" />
+    <meta property="og:description" content="Create your future mech and test your weapons for free with our simulator." />
+    <meta property="og:image" content="https://supermech.netlify.com/img/fb.jpg" />
+    <!-- ========= End of Facebook Meta Description ==================-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- ==================== icon for tab =========================== -->
     <link rel="icon" href="img/eye.png" sizes="16x16">
+    <!-- ==================== css external ===========================-->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/550width.css">
     <link rel="stylesheet" href="css/900width.css">
+    <!-- ==================== inport jquery =====================-->
     <script src="https://code.createjs.com/1.0.0/soundjs.min.js"></script>
-    <title>SuperMech Simulator</title>
+    <!-- ===================== google ads ==========================-->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-3419718797683478",
+            enable_page_level_ads: true
+        });
+    </script>
+    <!-- ==================== end of google ads ==================== -->
+    <!-- ========= Global site tag (gtag.js) - Google Analytics =======-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127334991-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-127334991-1');
+    </script>
+    <!--  =================== End of Google Analytics ================== -->
+
 </head>
 
 <body>
@@ -70,8 +98,8 @@
                     <!--Change menu using top bar-->
                     <div class="dispFlex lineH dispBlock">
                         <div class="ImgLeft" id="DmgTestBackground">
-                            <a href="arena.html"><img onclick="saveStatus(), checkIfYouHaveValuesOnLocalStorage() " id="dmgTestImgId" class="topBarImg"
-                            title="Damage Test" src="img/Hunt.png" alt="" /></a>
+                            <a href="arena.html"><img onclick="saveStatus(), checkIfYouHaveValuesOnLocalStorage() " id="dmgTestImgId"
+                                    class="topBarImg" title="Damage Test" src="img/Hunt.png" alt="" /></a>
                         </div>
                         <div class="ImgLeft" id="SideWeponsBackground">
                             <img onclick="getToSideWepMenu()" id="sideWepImgId" class="topBarImg" title="Side Wepons"
@@ -1138,10 +1166,10 @@
                         <div class="arenaWeponStats">
                             <div class="textCenterAndM2">
                                 <div>
-                                    <img title="Arena bonus for energy regeneration" class="imgArena" src="img/arena/energy_regen.png"
+                                    <img title="Arena bonus for energy damage" class="imgArena" src="img/arena/energy_regen.png"
                                         alt="">
                                 </div>
-                                <select  id="energyDamageArena" onchange="executeAllFunctions()" class="selectArenaProcent">
+                                <select id="energyDamageArena" onchange="executeAllFunctions()" class="selectArenaProcent">
                                     <option value="procent0">0%</option>
                                     <option value="procent1">1%</option>
                                     <option value="procent3">3%</option>
@@ -1162,7 +1190,7 @@
                                     <img title="Arena bonus for heat damage" class="imgArena" src="img/arena/heat_damage.png"
                                         alt="">
                                 </div>
-                                <select  id="heatDamageArena" onchange="executeAllFunctions()" class="selectArenaProcent">
+                                <select id="heatDamageArena" onchange="executeAllFunctions()" class="selectArenaProcent">
                                     <option value="procent0">0%</option>
                                     <option value="procent1">1%</option>
                                     <option value="procent3">3%</option>
@@ -1202,7 +1230,7 @@
                                     <img title="Arena bonus for electric damage" class="imgArena" src="img/arena/electric_damage.png"
                                         alt="">
                                 </div>
-                                <select  id="selectArenaEleDmgId" onchange="executeAllFunctions()" class="selectArenaProcent">
+                                <select id="selectArenaEleDmgId" onchange="executeAllFunctions()" class="selectArenaProcent">
                                     <option value="procent0">0%</option>
                                     <option value="procent1">1%</option>
                                     <option value="procent3">3%</option>
@@ -1222,7 +1250,7 @@
                                     <img title="Arena bonus for psyhic damage" class="imgArena" src="img/arena/physical_damage.png"
                                         alt="">
                                 </div>
-                                <select  id="selectArenaPysDmgId" onchange="executeAllFunctions()" class="selectArenaProcent">
+                                <select id="selectArenaPysDmgId" onchange="executeAllFunctions()" class="selectArenaProcent">
                                     <option value="procent0">0%</option>
                                     <option value="procent1">1%</option>
                                     <option value="procent3">3%</option>
@@ -1256,12 +1284,19 @@
                                     <option value="level10">300</option>
                                 </select>
                             </div>
+                            <!-- Token Calculator -->
+                            <div class="hover" onclick="displayCalculator(),changeTotalTokens(),numberOfDaysAndFightRequired()" class="textCenterAndM2">
+                                <div>
+                                    <img title="Token Calculator" class="imgArena" src="img/arena/arenaToken.png"
+                                        alt="">
+                                </div>
+                            </div>
                             <!--Arena weapons end-->
                         </div>
                     </div>
                 </div>
             </div>
-            <!--Here-->
+            <!--========== Buttons Container ============-->
             <div id="screenInform">
                 <div class="screenDisplay" id="screenDisplayId">
                     <div class="spanLoadDiv">
@@ -1283,12 +1318,62 @@
             <!--This is the end of the superMech container-->
         </div>
     </div>
-
+    <!-- ===================== simulator for arena consumption ===================-->
+    <div id="tokenCalculator" class="token">
+        <div>
+            <span>Total Tokens</span>
+            <div class="dFlexAlingCenter justif-center">
+                <span id="totalTokenSpanId">0</span>
+                <img class="tokenImg" src='img/arena/arenaToken.png' alt="">
+            </div>
+        </div>
+        <!-- insert how much tokens you will get per fight -->
+        <div>
+            <span>Earn/Fight</span>
+            <div class="dFlexAlingCenter justif-center">
+                <input onkeyup="numberOfDaysAndFightRequired()" value="5" class="inputToken" type="text" name="" id="tokenInputId">
+                <img class="tokenImg" src='img/arena/arenaToken.png' alt="">
+            </div>
+        </div>
+        <!-- how many fight you need -->
+        <div>
+            <span>Fights</span>
+            <div class="dFlexAlingCenter justif-center">
+                <span id="tokenFightId">0</span>
+                <img class="tokenImg" src='img/Hunt.png' alt="">
+            </div>
+        </div>
+        <!-- how many days you will need-->
+        <div>
+            <span>Days</span>
+            <div class="dFlexAlingCenter justif-center">
+                <span id="tokenDaysId">0</span>
+                <img class="clepsidra" src='img/clepsidra.png' alt="">
+            </div>
+        </div>
+    </div>
+    <div class="facebookContainer">
+        <div class="fb-like" data-href="https://supermech.netlify.com/" data-layout="button_count" data-action="like"
+            data-size="large" data-show-faces="true" data-share="true">
+        </div>
+    </div>
+    <!-- facebook sdk javascript  -->
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- end of facebook sdk javascript -->
     <script src="js/ChangeMenu.js"></script>
     <script src="js/ImagesAndOptions.js"></script>
     <script src="js/stats.js"></script>
     <script src="js/loadingBarandScreen.js"></script>
     <script src="js/saveAndLoad.js"></script>
+    <script src="js/tokenCalculator.js"></script>
     <script src="js/allScriptsInOneFile.js"></script>
 
 </body>

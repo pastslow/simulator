@@ -66,6 +66,14 @@
     .ImgLeft0{
         margin-top: 44px;
     }
+
+    .token {
+        max-width: 702px;
+    }
+
+    .hover{
+        margin-left: 18px;
+    }
     
 }
 

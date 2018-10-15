@@ -7,8 +7,9 @@ function executeAllFunctions() {
   // from stats.js
   changeStats();
   onModuleItemChange(event);
+  changeTotalTokens();
+  numberOfDaysAndFightRequired();
 }
-
 
 
 function getExcludesFromCurentSelect(currentSelect) {
